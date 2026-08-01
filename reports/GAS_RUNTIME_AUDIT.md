@@ -3,11 +3,11 @@
 ## Summary
 
 - Scanned files: 163
-- GAS backend functions: 129
+- GAS backend functions: 138
 - Frontend functions: 374
 - Frontend `google.script.run` calls: 57 unique 18
 - Sheet constants: 25
-- Sheet dependencies: 68
+- Sheet dependencies: 69
 
 ## Critical Issues
 
@@ -23,11 +23,12 @@
 
 | Dependency | Location | Issue |
 | --- | --- | --- |
-| `sheetName` | `active/HOME_PORTAL/DataRepairUtils.gs:116` | sheet dependency references a non-constant name |
-| `sheetName` | `active/HOME_PORTAL/DataRepairUtils.gs:127` | sheet dependency references a non-constant name |
-| `sheetName` | `active/HOME_PORTAL/DataRepairUtils.gs:159` | sheet dependency references a non-constant name |
-| `sheetName` | `active/HOME_PORTAL/DataRepairUtils.gs:227` | sheet dependency references a non-constant name |
-| `sheetName` | `active/HOME_PORTAL/GateFunctions.gs:178` | sheet dependency references a non-constant name |
+| `sheetName` | `active/HOME_PORTAL/DataRepairUtils.gs:117` | sheet dependency references a non-constant name |
+| `sheetName` | `active/HOME_PORTAL/DataRepairUtils.gs:128` | sheet dependency references a non-constant name |
+| `sheetName` | `active/HOME_PORTAL/DataRepairUtils.gs:180` | sheet dependency references a non-constant name |
+| `sheetName` | `active/HOME_PORTAL/DataRepairUtils.gs:256` | sheet dependency references a non-constant name |
+| `sheetName` | `active/HOME_PORTAL/DataRepairUtils.gs:331` | sheet dependency references a non-constant name |
+| `sheetName` | `active/HOME_PORTAL/GateFunctions.gs:193` | sheet dependency references a non-constant name |
 | `sheetName` | `active/MODUL_GATE_PABRIK/Code.js:116` | sheet dependency references a non-constant name |
 
 ## Active Runtime Mapping

@@ -100,6 +100,7 @@ function formatHistoricalRepairSummary_(report, title) {
   return heading + '\n' +
     '- Sheet diperbarui/di-rename: ' + renamedTabsCount + '\n' +
     '- NIK dibersihkan (.0): ' + (report.cleanedNiks || 0) + '\n' +
+    '- Sel tanggal/jam dinormalkan: ' + (report.normalizedTemporalCells || 0) + '\n' +
     '- Label Shift Masuk Dikoreksi: ' + (report.fixedMasukShifts || 0) + '\n' +
     '- Label Shift Keluar Dikoreksi: ' + (report.fixedKeluarShifts || 0) + '\n' +
     '- Rekap Dipasangkan (SELESAI): ' + (report.pairedSelesai || 0) + '\n' +
@@ -149,6 +150,102 @@ function sanitizeSheetNikColumn_(sheetName, nikColIndex) {
   return cleanedCount;
 }
 
+function normalizeTemporalCellValue_(rawValue, mode) {
+  if (mode === 'datetime') {
+    return makeSheetDateTimeValue(rawValue);
+  }
+  return makeSheetDateValue(rawValue);
+}
+
+function temporalCellMatchesMode_(rawValue, normalizedValue, mode) {
+  if (!normalizedValue || !(normalizedValue instanceof Date)) return true;
+  if (!(rawValue instanceof Date)) return false;
+
+  if (mode === 'datetime') {
+    return rawValue.getTime() === normalizedValue.getTime();
+  }
+
+  return (
+    rawValue.getFullYear() === normalizedValue.getFullYear() &&
+    rawValue.getMonth() === normalizedValue.getMonth() &&
+    rawValue.getDate() === normalizedValue.getDate() &&
+    rawValue.getHours() === 0 &&
+    rawValue.getMinutes() === 0 &&
+    rawValue.getSeconds() === 0 &&
+    rawValue.getMilliseconds() === 0
+  );
+}
+
+function normalizeTemporalColumn_(sheetName, columnIndex, mode, numberFormat) {
+  const sheet = getSheet(sheetName);
+  const lastRow = sheet.getLastRow();
+  if (lastRow <= 1) return { normalizedCount: 0, sampleRows: [] };
+
+  const range = sheet.getRange(2, columnIndex, lastRow - 1, 1);
+  const values = range.getValues();
+  let changed = false;
+  let normalizedCount = 0;
+  const sampleRows = [];
+
+  for (let i = 0; i < values.length; i++) {
+    const rawValue = values[i][0];
+    if (rawValue === '' || rawValue === null || rawValue === undefined) continue;
+
+    const normalizedValue = normalizeTemporalCellValue_(rawValue, mode);
+    if (!normalizedValue) continue;
+    if (temporalCellMatchesMode_(rawValue, normalizedValue, mode)) continue;
+
+    values[i][0] = normalizedValue;
+    changed = true;
+    normalizedCount++;
+
+    if (sampleRows.length < 10) {
+      sampleRows.push({
+        rowNumber: i + 2,
+        beforeValue: asText(rawValue),
+        afterValue: mode === 'datetime' ? formatDateTime(normalizedValue) : formatDate(normalizedValue)
+      });
+    }
+  }
+
+  if (changed) {
+    range.setValues(values);
+  }
+  if (numberFormat) {
+    range.setNumberFormat(numberFormat);
+  }
+
+  return {
+    normalizedCount: normalizedCount,
+    sampleRows: sampleRows
+  };
+}
+
+function normalizeFactoryTemporalColumns_() {
+  const result = {
+    masukDates: normalizeTemporalColumn_(SHEET_MASUK_PABRIK, 4, 'date', 'dd/MM/yyyy'),
+    keluarDates: normalizeTemporalColumn_(SHEET_KELUAR_PABRIK, 4, 'date', 'dd/MM/yyyy'),
+    areaDates: normalizeTemporalColumn_(SHEET_AREA_KERJA, 3, 'date', 'dd/MM/yyyy'),
+    recapDates: normalizeTemporalColumn_(SHEET_RECAP_ABSEN, 1, 'date', 'dd/MM/yyyy'),
+    bindingBind: normalizeTemporalColumn_(SHEET_BINDING, 6, 'datetime', 'dd/MM/yyyy HH:mm:ss'),
+    bindingRelease: normalizeTemporalColumn_(SHEET_BINDING, 8, 'datetime', 'dd/MM/yyyy HH:mm:ss'),
+    jadwalMulai: normalizeTemporalColumn_(SHEET_JADWAL, 5, 'date', 'dd/MM/yyyy'),
+    jadwalSelesai: normalizeTemporalColumn_(SHEET_JADWAL, 6, 'date', 'dd/MM/yyyy')
+  };
+
+  result.totalNormalized =
+    (result.masukDates.normalizedCount || 0) +
+    (result.keluarDates.normalizedCount || 0) +
+    (result.areaDates.normalizedCount || 0) +
+    (result.recapDates.normalizedCount || 0) +
+    (result.bindingBind.normalizedCount || 0) +
+    (result.bindingRelease.normalizedCount || 0) +
+    (result.jadwalMulai.normalizedCount || 0) +
+    (result.jadwalSelesai.normalizedCount || 0);
+
+  return result;
+}
+
 function buildFactoryAffectedDates_(tanggal, nik, timeValue, eventType) {
   const baseDate = normalizeSheetDateValue_(tanggal);
   const context = resolveFactoryWorkDate(baseDate, timeValue, eventType);
@@ -186,6 +283,12 @@ function repairFactoryShiftColumn_(sheetName, eventType, shiftColIndex) {
     const jamStr = normalizeDisplayedTimeValue_(row[4], displayRow[4]);
     if (!tanggal || !jamStr) continue;
 
+    const normalizedDateValue = makeSheetDateValue(row[3] || displayRow[3]);
+    if (normalizedDateValue && !temporalCellMatchesMode_(row[3], normalizedDateValue, 'date')) {
+      row[3] = normalizedDateValue;
+      changed = true;
+    }
+
     const currentShift = asText(row[shiftColIndex - 1]).trim();
     const correctShift = detectShift(jamStr, eventType);
     if (correctShift && currentShift !== correctShift) {
@@ -209,6 +312,7 @@ function repairFactoryShiftColumn_(sheetName, eventType, shiftColIndex) {
 
   if (changed) {
     range.setValues(data);
+    sheet.getRange(2, 4, lastRow - 1, 1).setNumberFormat('dd/MM/yyyy');
     SpreadsheetApp.flush();
   }
 
@@ -363,7 +467,7 @@ function buildFactoryRecapRowsFromEvents_(masukEvents, keluarEvents) {
     const status = getRecapStatus(jamMasuk, jamKeluar);
 
     rows.push([
-      group.tanggal,
+      makeSheetDateValue(group.tanggal),
       group.nik,
       group.nama,
       group.dept,
@@ -428,6 +532,7 @@ function rewriteFactoryRecapSheet_(rows, options) {
   }
   if (finalRows.length > 0) {
     sheetRecap.getRange(2, 1, finalRows.length, recapWidth).setValues(finalRows);
+    sheetRecap.getRange(2, 1, finalRows.length, 1).setNumberFormat('dd/MM/yyyy');
     sheetRecap.getRange(2, 6, finalRows.length, 2).setNumberFormat('@');
   }
   return finalRows.length;
@@ -624,6 +729,9 @@ function fixAllSpreadsheetErrors() {
       report.cleanedNiks += sanitizeSheetNikColumn_(SHEET_AREA_KERJA, 5);
       report.cleanedNiks += sanitizeSheetNikColumn_(SHEET_RECAP_ABSEN, 2);
       report.cleanedNiks += sanitizeSheetNikColumn_(SHEET_JADWAL, 1);
+
+      const temporalNormalization = normalizeFactoryTemporalColumns_();
+      report.normalizedTemporalCells = temporalNormalization.totalNormalized || 0;
 
       const masukRepair = repairFactoryMasukLog_();
       const keluarRepair = repairFactoryKeluarLog_();

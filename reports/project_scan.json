@@ -53,7 +53,7 @@
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
       "kind": "gas",
-      "bytes": 32847
+      "bytes": 32982
     },
     {
       "file": "active/HOME_PORTAL/Code.js",
@@ -63,12 +63,12 @@
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
       "kind": "gas",
-      "bytes": 21798
+      "bytes": 25742
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
       "kind": "gas",
-      "bytes": 10097
+      "bytes": 10980
     },
     {
       "file": "active/HOME_PORTAL/Index.html",
@@ -83,12 +83,12 @@
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
       "kind": "gas",
-      "bytes": 12552
+      "bytes": 12648
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
       "kind": "gas",
-      "bytes": 34490
+      "bytes": 37928
     },
     {
       "file": "active/HOME_PORTAL/app.html",
@@ -826,84 +826,84 @@
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 72,
+      "line": 74,
       "name": "getDashboardData",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 74,
+      "line": 76,
       "name": "toDateKey",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 78,
+      "line": 80,
       "name": "parseTimeParts",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 96,
+      "line": 98,
       "name": "toDisplayTime",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 105,
+      "line": 107,
       "name": "buildDateTimeKey",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 114,
+      "line": 116,
       "name": "isDateWithinRange",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 118,
+      "line": 120,
       "name": "getCurrentShiftLabel",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 122,
+      "line": 124,
       "name": "getIsoWeekCode",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 131,
+      "line": 133,
       "name": "isTimeInShift",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 140,
+      "line": 142,
       "name": "buildBasisConfig",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 534,
+      "line": 536,
       "name": "getKehadiranDashboard",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 771,
+      "line": 773,
       "name": "getRecentAreaLogs",
       "kind": "gas_function",
       "detail": ""
@@ -994,119 +994,147 @@
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 112,
+      "line": 113,
       "name": "ensureFactoryHeaderSheets_",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 126,
+      "line": 127,
       "name": "sanitizeSheetNikColumn_",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 152,
+      "line": 153,
+      "name": "normalizeTemporalCellValue_",
+      "kind": "gas_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 160,
+      "name": "temporalCellMatchesMode_",
+      "kind": "gas_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 179,
+      "name": "normalizeTemporalColumn_",
+      "kind": "gas_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 224,
+      "name": "normalizeFactoryTemporalColumns_",
+      "kind": "gas_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 249,
       "name": "buildFactoryAffectedDates_",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 158,
+      "line": 255,
       "name": "repairFactoryShiftColumn_",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 222,
+      "line": 326,
       "name": "collectFactoryLogEvents_",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 314,
+      "line": 418,
       "name": "buildFactoryRecapRowsFromEvents_",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 323,
+      "line": 427,
       "name": "ensureGroup",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 393,
+      "line": 497,
       "name": "rewriteFactoryRecapSheet_",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 436,
+      "line": 541,
       "name": "buildFactoryRecapRowsForNik_",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 452,
+      "line": 557,
       "name": "refreshFactoryRecapForNik_",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 475,
+      "line": 580,
       "name": "getFactoryFlowStatusFromLogs_",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 490,
+      "line": 595,
       "name": "repairFactoryMasukLog_",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 494,
+      "line": 599,
       "name": "repairFactoryKeluarLog_",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 498,
+      "line": 603,
       "name": "repairFactoryMasukLog",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 520,
+      "line": 625,
       "name": "repairFactoryKeluarLog",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 542,
+      "line": 647,
       "name": "rebuildHistoricalRecapDataset_",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 597,
+      "line": 702,
       "name": "fixAllSpreadsheetErrors",
       "kind": "gas_function",
       "detail": ""
@@ -1141,28 +1169,28 @@
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 72,
+      "line": 74,
       "name": "bindKartu",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 133,
+      "line": 141,
       "name": "releaseKartu",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 172,
+      "line": 187,
       "name": "getRecentFactoryGateLogs",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 177,
+      "line": 192,
       "name": "collectRecentRows_",
       "kind": "gas_function",
       "detail": ""
@@ -1211,91 +1239,91 @@
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 24,
+      "line": 20,
       "name": "formatSheetDateValue",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 31,
+      "line": 25,
       "name": "formatSheetTimeValue",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 38,
+      "line": 35,
       "name": "formatDisplayedDateValue",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 43,
+      "line": 44,
       "name": "formatDisplayedTimeValue",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 48,
+      "line": 55,
       "name": "buildTimeSortKey",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 61,
+      "line": 68,
       "name": "buildPaginationMeta_",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 79,
+      "line": 86,
       "name": "getAbsenReport",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 114,
+      "line": 121,
       "name": "exportAbsenReportCsv",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 158,
+      "line": 165,
       "name": "getAreaActivityReport",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 206,
+      "line": 213,
       "name": "getAbsenReportFullData_",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 261,
+      "line": 268,
       "name": "getAreaActivityReportFullData_",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 334,
+      "line": 341,
       "name": "buildAbsenExportFilename_",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 340,
+      "line": 347,
       "name": "csvCellServer_",
       "kind": "gas_function",
       "detail": ""
@@ -1394,307 +1422,342 @@
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
       "line": 200,
-      "name": "parseIsoDate",
-      "kind": "gas_function",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 211,
-      "name": "parseSheetDate",
-      "kind": "gas_function",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 237,
-      "name": "formatDateForSort",
+      "name": "parseSheetDateTime",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
       "line": 247,
+      "name": "makeSheetDateValue",
+      "kind": "gas_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 258,
+      "name": "makeSheetDateTimeValue",
+      "kind": "gas_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 288,
+      "name": "applyNumberFormatToColumn_",
+      "kind": "gas_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 300,
+      "name": "applyNumberFormatToCell_",
+      "kind": "gas_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 309,
+      "name": "parseIsoDate",
+      "kind": "gas_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 320,
+      "name": "parseSheetDate",
+      "kind": "gas_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 351,
+      "name": "formatDateForSort",
+      "kind": "gas_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 361,
       "name": "getPeriodRange",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 286,
+      "line": 400,
       "name": "isDateInRange",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 296,
+      "line": 410,
       "name": "detectShift",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 365,
+      "line": 479,
       "name": "normalizeShiftLabel",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 372,
+      "line": 486,
       "name": "getShiftDefinition_",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 377,
+      "line": 491,
       "name": "getShiftRange_",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 394,
+      "line": 508,
       "name": "getShiftEventMatch_",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 430,
+      "line": 544,
       "name": "timeStrToMinutes",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 446,
+      "line": 560,
       "name": "normalizeTimeValue",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 465,
+      "line": 579,
       "name": "compareTimeValues",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 476,
+      "line": 590,
       "name": "isMinuteInRange",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 482,
+      "line": 596,
       "name": "isMinuteInRanges",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 489,
+      "line": 603,
       "name": "matchesShiftEventTime",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 495,
+      "line": 609,
       "name": "inferShiftByEventTime",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 512,
+      "line": 626,
       "name": "resolveFactoryWorkDate",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 545,
+      "line": 659,
       "name": "getExpectedShiftForNikOnDate",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 563,
+      "line": 677,
       "name": "resolveRecapShiftContext",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 611,
+      "line": 725,
       "name": "getLateMinutes",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 629,
+      "line": 743,
       "name": "getLateCategory",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 645,
+      "line": 759,
       "name": "getOvertimeMinutes",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 661,
+      "line": 775,
       "name": "getEarlyLeaveMinutes",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 682,
+      "line": 796,
       "name": "formatDurationMinutes",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 692,
+      "line": 806,
       "name": "withDocumentLock",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 706,
+      "line": 820,
       "name": "assertCard",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 715,
+      "line": 829,
       "name": "isExternalKaryawan",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 737,
+      "line": 851,
       "name": "makeKaryawanPayload",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 750,
+      "line": 864,
       "name": "getAvailableDepts",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 764,
+      "line": 878,
       "name": "getFactoryRecapStatus",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 784,
+      "line": 898,
       "name": "getRecapStatus",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 791,
+      "line": 905,
       "name": "makeRecapKey",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 798,
+      "line": 912,
       "name": "getRecapSourceSnapshot",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 819,
+      "line": 933,
       "name": "absorbRow",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 877,
+      "line": 991,
       "name": "getKaryawanMapByNIK",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 899,
+      "line": 1013,
       "name": "getKaryawanByNIK",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 920,
+      "line": 1034,
       "name": "searchKaryawan",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 955,
+      "line": 1069,
       "name": "requireRole",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 983,
+      "line": 1097,
       "name": "guardAdmin",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 991,
+      "line": 1105,
       "name": "verifyLogin",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 1014,
+      "line": 1128,
       "name": "verifySession",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 1035,
+      "line": 1149,
       "name": "include",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 1044,
+      "line": 1158,
       "name": "getModuleUrls",
       "kind": "gas_function",
       "detail": ""
@@ -5988,77 +6051,84 @@
   "sheet_dependencies": [
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 41,
+      "line": 42,
       "name": "SHEET_AREA_KERJA",
       "kind": "sheet_dependency",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 206,
+      "line": 208,
       "name": "SHEET_RECAP_ABSEN",
       "kind": "sheet_dependency",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 323,
+      "line": 325,
       "name": "SHEET_AREA_KERJA",
       "kind": "sheet_dependency",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 555,
+      "line": 557,
       "name": "SHEET_RECAP_ABSEN",
       "kind": "sheet_dependency",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 774,
+      "line": 776,
       "name": "SHEET_AREA_KERJA",
       "kind": "sheet_dependency",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 116,
+      "line": 117,
       "name": "sheetName",
       "kind": "sheet_dependency",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 127,
+      "line": 128,
       "name": "sheetName",
       "kind": "sheet_dependency",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 159,
+      "line": 180,
       "name": "sheetName",
       "kind": "sheet_dependency",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 227,
+      "line": 256,
       "name": "sheetName",
       "kind": "sheet_dependency",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 395,
+      "line": 331,
+      "name": "sheetName",
+      "kind": "sheet_dependency",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 499,
       "name": "SHEET_RECAP_ABSEN",
       "kind": "sheet_dependency",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 570,
+      "line": 675,
       "name": "SHEET_BINDING",
       "kind": "sheet_dependency",
       "detail": ""
@@ -6072,35 +6142,35 @@
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 105,
+      "line": 108,
       "name": "SHEET_BINDING",
       "kind": "sheet_dependency",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 123,
+      "line": 129,
       "name": "SHEET_MASUK_PABRIK",
       "kind": "sheet_dependency",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 153,
+      "line": 163,
       "name": "SHEET_BINDING",
       "kind": "sheet_dependency",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 159,
+      "line": 172,
       "name": "SHEET_KELUAR_PABRIK",
       "kind": "sheet_dependency",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 178,
+      "line": 193,
       "name": "sheetName",
       "kind": "sheet_dependency",
       "detail": ""
@@ -6135,14 +6205,14 @@
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 210,
+      "line": 217,
       "name": "SHEET_RECAP_ABSEN",
       "kind": "sheet_dependency",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 265,
+      "line": 272,
       "name": "SHEET_AREA_KERJA",
       "kind": "sheet_dependency",
       "detail": ""
@@ -6156,42 +6226,42 @@
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 766,
+      "line": 880,
       "name": "SHEET_RECAP_ABSEN",
       "kind": "sheet_dependency",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 854,
+      "line": 968,
       "name": "SHEET_MASUK_PABRIK",
       "kind": "sheet_dependency",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 857,
+      "line": 971,
       "name": "SHEET_KELUAR_PABRIK",
       "kind": "sheet_dependency",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 878,
+      "line": 992,
       "name": "SHEET_KARYAWAN",
       "kind": "sheet_dependency",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 903,
+      "line": 1017,
       "name": "SHEET_KARYAWAN",
       "kind": "sheet_dependency",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 922,
+      "line": 1036,
       "name": "SHEET_KARYAWAN",
       "kind": "sheet_dependency",
       "detail": ""
@@ -6537,349 +6607,356 @@
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
       "line": 29,
-      "name": "formatDate",
+      "name": "makeSheetDateValue",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
       "line": 30,
+      "name": "formatDate",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 31,
       "name": "formatDateTime",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 31,
+      "line": 32,
       "name": "resolveFactoryWorkDate",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 31,
-      "name": "formatTime",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
       "line": 32,
-      "name": "getFactoryFlowStatusFromLogs_",
+      "name": "formatTime",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
       "line": 33,
-      "name": "isExternalKaryawan",
+      "name": "getFactoryFlowStatusFromLogs_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 40,
-      "name": "asText",
+      "line": 34,
+      "name": "isExternalKaryawan",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
       "line": 41,
-      "name": "getSheet",
+      "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 45,
-      "name": "asText",
+      "line": 42,
+      "name": "getSheet",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
       "line": 46,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 47,
       "name": "normalizeCard",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 48,
+      "line": 49,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 58,
+      "line": 59,
       "name": "formatTime",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 75,
+      "line": 60,
+      "name": "applyNumberFormatToCell_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 77,
       "name": "formatDateForSort",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 86,
+      "line": 88,
       "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 98,
-      "name": "formatDate",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
       "line": 100,
+      "name": "formatDate",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 102,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 106,
+      "line": 108,
       "name": "toDateKey",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 107,
+      "line": 109,
       "name": "parseTimeParts",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 119,
+      "line": 121,
       "name": "detectShift",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 119,
+      "line": 121,
       "name": "nowWIB",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 132,
+      "line": 134,
       "name": "parseTimeParts",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 141,
+      "line": 143,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 145,
+      "line": 147,
       "name": "formatDate",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 148,
+      "line": 150,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 151,
+      "line": 153,
       "name": "parseIsoDate",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 155,
+      "line": 157,
       "name": "formatDate",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 158,
+      "line": 160,
       "name": "parseIsoDate",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 161,
+      "line": 163,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 164,
+      "line": 166,
       "name": "formatDate",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 168,
+      "line": 170,
       "name": "getIsoWeekCode",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 179,
+      "line": 181,
       "name": "formatDate",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 179,
+      "line": 181,
       "name": "formatDate",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 188,
+      "line": 190,
       "name": "formatDate",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 194,
+      "line": 196,
       "name": "toDateKey",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 195,
+      "line": 197,
       "name": "toDateKey",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 203,
-      "name": "nowWIB",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 204,
-      "name": "buildBasisConfig",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
       "line": 205,
-      "name": "getKaryawanMapByNIK",
+      "name": "nowWIB",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
       "line": 206,
+      "name": "buildBasisConfig",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 207,
+      "name": "getKaryawanMapByNIK",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 208,
       "name": "getSheet",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 215,
+      "line": 217,
       "name": "toDateKey",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 216,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 217,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
       "line": 218,
-      "name": "isDateWithinRange",
+      "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
       "line": 219,
-      "name": "isTimeInShift",
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 220,
+      "name": "isDateWithinRange",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
       "line": 221,
+      "name": "isTimeInShift",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 223,
       "name": "buildDateTimeKey",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 239,
+      "line": 241,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 240,
+      "line": 242,
       "name": "isExternalKaryawan",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 241,
+      "line": 243,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 241,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 248,
+      "line": 243,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
@@ -6893,274 +6970,267 @@
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 251,
-      "name": "toDisplayTime",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
       "line": 252,
-      "name": "normalizeCard",
+      "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
       "line": 253,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 259,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 259,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 263,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 264,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 270,
-      "name": "isExternalKaryawan",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 271,
-      "name": "isExternalKaryawan",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 294,
-      "name": "toDateKey",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 295,
-      "name": "isDateWithinRange",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 296,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 300,
-      "name": "timeStrToMinutes",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 303,
-      "name": "detectShift",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 306,
-      "name": "getLateMinutes",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 310,
-      "name": "getOvertimeMinutes",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 323,
-      "name": "getSheet",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 329,
-      "name": "isDateWithinRange",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 329,
-      "name": "toDateKey",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 330,
-      "name": "isTimeInShift",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 333,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 336,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 337,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 342,
       "name": "toDisplayTime",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 343,
+      "line": 254,
+      "name": "normalizeCard",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 255,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 261,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 261,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 265,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 266,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 272,
+      "name": "isExternalKaryawan",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 273,
+      "name": "isExternalKaryawan",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 296,
+      "name": "toDateKey",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 297,
+      "name": "isDateWithinRange",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 298,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 302,
+      "name": "timeStrToMinutes",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 305,
+      "name": "detectShift",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 308,
+      "name": "getLateMinutes",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 312,
+      "name": "getOvertimeMinutes",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 325,
+      "name": "getSheet",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 331,
+      "name": "isDateWithinRange",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 331,
+      "name": "toDateKey",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 332,
+      "name": "isTimeInShift",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 335,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 338,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 339,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 344,
+      "name": "toDisplayTime",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 345,
       "name": "formatDate",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 377,
+      "line": 379,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 377,
+      "line": 379,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 436,
+      "line": 438,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 436,
+      "line": 438,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 459,
+      "line": 461,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 459,
+      "line": 461,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 496,
+      "line": 498,
       "name": "formatDateTime",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 537,
+      "line": 539,
       "name": "nowWIB",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 540,
+      "line": 542,
       "name": "parseIsoDate",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 540,
+      "line": 542,
       "name": "parseSheetDate",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 544,
+      "line": 546,
       "name": "formatDateForSort",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 545,
-      "name": "formatDate",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
       "line": 547,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 548,
-      "name": "asText",
+      "name": "formatDate",
       "kind": "internal_gas_call",
       "detail": ""
     },
@@ -7173,36 +7243,36 @@
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 552,
+      "line": 550,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 551,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 554,
       "name": "getKaryawanMapByNIK",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 555,
+      "line": 557,
       "name": "getSheet",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 565,
+      "line": 567,
       "name": "formatDateForSort",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 577,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 578,
-      "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
@@ -7222,181 +7292,167 @@
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 583,
+      "line": 581,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 587,
+      "line": 582,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 588,
+      "line": 585,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 589,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 590,
       "name": "isExternalKaryawan",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 600,
+      "line": 602,
       "name": "normalizeShiftLabel",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 600,
-      "name": "getExpectedShiftForNikOnDate",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
       "line": 602,
+      "name": "getExpectedShiftForNikOnDate",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 604,
       "name": "matchesShiftEventTime",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 608,
+      "line": 610,
       "name": "timeStrToMinutes",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 614,
+      "line": 616,
       "name": "detectShift",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 622,
+      "line": 624,
       "name": "formatDate",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 622,
+      "line": 624,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 623,
+      "line": 625,
       "name": "formatDate",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 623,
+      "line": 625,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 626,
+      "line": 628,
       "name": "getLateMinutes",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 627,
+      "line": 629,
       "name": "getLateCategory",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 630,
+      "line": 632,
       "name": "getOvertimeMinutes",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 631,
+      "line": 633,
       "name": "getEarlyLeaveMinutes",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 641,
+      "line": 643,
       "name": "timeStrToMinutes",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 714,
+      "line": 716,
       "name": "getKaryawanExpectedForDate",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 720,
+      "line": 722,
       "name": "normalizeShiftLabel",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 774,
+      "line": 776,
       "name": "getSheet",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 779,
+      "line": 781,
       "name": "normalizeCard",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 779,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 780,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 780,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
-      "line": 781,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/AreaFunctions.gs",
       "line": 781,
       "name": "asText",
       "kind": "internal_gas_call",
@@ -7412,6 +7468,34 @@
     {
       "file": "active/HOME_PORTAL/AreaFunctions.gs",
       "line": 782,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 783,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 783,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 784,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/AreaFunctions.gs",
+      "line": 784,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
@@ -7656,211 +7740,204 @@
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 116,
+      "line": 117,
       "name": "getSheet",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 127,
+      "line": 128,
       "name": "getSheet",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 137,
+      "line": 138,
       "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 153,
-      "name": "normalizeSheetDateValue_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 154,
-      "name": "resolveFactoryWorkDate",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
       "line": 155,
-      "name": "uniqueTextList_",
+      "name": "makeSheetDateTimeValue",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 159,
+      "line": 157,
+      "name": "makeSheetDateValue",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 180,
       "name": "getSheet",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 177,
+      "line": 194,
+      "name": "normalizeTemporalCellValue_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 196,
+      "name": "temporalCellMatchesMode_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 205,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 185,
-      "name": "normalizeSheetDateValue_",
+      "line": 206,
+      "name": "formatDateTime",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 185,
-      "name": "normalizeSheetDateValue_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 186,
-      "name": "normalizeDisplayedTimeValue_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 189,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 190,
-      "name": "detectShift",
+      "line": 206,
+      "name": "formatDate",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
       "line": 226,
-      "name": "asText",
+      "name": "normalizeTemporalColumn_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
       "line": 227,
-      "name": "getSheet",
+      "name": "normalizeTemporalColumn_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 242,
-      "name": "getKaryawanMapByNIK",
+      "line": 228,
+      "name": "normalizeTemporalColumn_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 247,
-      "name": "asText",
+      "line": 229,
+      "name": "normalizeTemporalColumn_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 249,
-      "name": "normalizeSheetDateValue_",
+      "line": 230,
+      "name": "normalizeTemporalColumn_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 249,
-      "name": "normalizeSheetDateValue_",
+      "line": 231,
+      "name": "normalizeTemporalColumn_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 232,
+      "name": "normalizeTemporalColumn_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 233,
+      "name": "normalizeTemporalColumn_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
       "line": 250,
-      "name": "parseSheetDate",
+      "name": "normalizeSheetDateValue_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
       "line": 251,
-      "name": "normalizeDisplayedTimeValue_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 260,
-      "name": "detectShift",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 261,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 284,
       "name": "resolveFactoryWorkDate",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 285,
+      "line": 252,
+      "name": "uniqueTextList_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 256,
+      "name": "getSheet",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 274,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 288,
-      "name": "asText",
+      "line": 282,
+      "name": "normalizeSheetDateValue_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 288,
-      "name": "asText",
+      "line": 282,
+      "name": "normalizeSheetDateValue_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 289,
-      "name": "asText",
+      "line": 283,
+      "name": "normalizeDisplayedTimeValue_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 290,
-      "name": "asText",
+      "line": 286,
+      "name": "makeSheetDateValue",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 291,
-      "name": "normalizeCard",
+      "line": 287,
+      "name": "temporalCellMatchesMode_",
       "kind": "internal_gas_call",
       "detail": ""
     },
@@ -7873,386 +7950,309 @@
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 296,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 296,
+      "line": 293,
       "name": "detectShift",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 297,
-      "name": "timeStrToMinutes",
+      "line": 330,
+      "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 344,
-      "name": "ensureGroup",
+      "line": 331,
+      "name": "getSheet",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 346,
+      "name": "getKaryawanMapByNIK",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
       "line": 351,
-      "name": "ensureGroup",
+      "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 363,
-      "name": "getRecapStatus",
+      "line": 353,
+      "name": "normalizeSheetDateValue_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 353,
+      "name": "normalizeSheetDateValue_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 354,
+      "name": "parseSheetDate",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 355,
+      "name": "normalizeDisplayedTimeValue_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 364,
+      "name": "detectShift",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 365,
+      "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
       "line": 388,
-      "name": "sortFactoryRecapRows_",
+      "name": "resolveFactoryWorkDate",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 389,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 392,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 392,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 393,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 394,
+      "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
       "line": 395,
-      "name": "getSheet",
+      "name": "normalizeCard",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 404,
+      "line": 396,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 405,
-      "name": "uniqueTextList_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 412,
+      "line": 400,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 413,
-      "name": "normalizeSheetDateValue_",
+      "line": 400,
+      "name": "detectShift",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 418,
-      "name": "normalizeSheetDateValue_",
+      "line": 401,
+      "name": "timeStrToMinutes",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 421,
+      "line": 448,
+      "name": "ensureGroup",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 455,
+      "name": "ensureGroup",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 467,
+      "name": "getRecapStatus",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 470,
+      "name": "makeSheetDateValue",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 492,
       "name": "sortFactoryRecapRows_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 423,
-      "name": "sortFactoryRecapRows_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 437,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 438,
-      "name": "getKaryawanMapByNIK",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 439,
-      "name": "collectFactoryLogEvents_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 444,
-      "name": "collectFactoryLogEvents_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 449,
-      "name": "buildFactoryRecapRowsFromEvents_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 453,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 456,
-      "name": "buildFactoryRecapRowsForNik_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 457,
-      "name": "uniqueTextList_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 458,
-      "name": "rewriteFactoryRecapSheet_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 476,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 477,
-      "name": "normalizeSheetDateValue_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 480,
-      "name": "buildFactoryRecapRowsForNik_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 483,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 483,
-      "name": "normalizeSheetDateValue_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 484,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 491,
-      "name": "repairFactoryShiftColumn_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 495,
-      "name": "repairFactoryShiftColumn_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
       "line": 499,
-      "name": "withDocumentLock",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 501,
-      "name": "ensureFactoryHeaderSheets_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 502,
-      "name": "repairFactoryMasukLog_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 503,
-      "name": "stringifyRepairSamples_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 508,
-      "name": "showSpreadsheetAlert_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 509,
-      "name": "appendRepairLog_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 513,
-      "name": "showSpreadsheetAlert_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 514,
-      "name": "appendRepairLog_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 521,
-      "name": "withDocumentLock",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 523,
-      "name": "ensureFactoryHeaderSheets_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 524,
-      "name": "repairFactoryKeluarLog_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 525,
-      "name": "stringifyRepairSamples_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 530,
-      "name": "showSpreadsheetAlert_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 531,
-      "name": "appendRepairLog_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 535,
-      "name": "showSpreadsheetAlert_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 536,
-      "name": "appendRepairLog_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 544,
-      "name": "getKaryawanMapByNIK",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 545,
-      "name": "collectFactoryLogEvents_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 550,
-      "name": "collectFactoryLogEvents_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 556,
-      "name": "buildFactoryRecapRowsFromEvents_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 557,
-      "name": "rewriteFactoryRecapSheet_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 570,
       "name": "getSheet",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 576,
+      "line": 508,
       "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 509,
+      "name": "uniqueTextList_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 516,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 517,
+      "name": "normalizeSheetDateValue_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 522,
+      "name": "normalizeSheetDateValue_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 525,
+      "name": "sortFactoryRecapRows_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 527,
+      "name": "sortFactoryRecapRows_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 542,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 543,
+      "name": "getKaryawanMapByNIK",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 544,
+      "name": "collectFactoryLogEvents_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 549,
+      "name": "collectFactoryLogEvents_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 554,
+      "name": "buildFactoryRecapRowsFromEvents_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 558,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 561,
+      "name": "buildFactoryRecapRowsForNik_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 562,
+      "name": "uniqueTextList_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 563,
+      "name": "rewriteFactoryRecapSheet_",
       "kind": "internal_gas_call",
       "detail": ""
     },
@@ -8266,70 +8266,119 @@
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
       "line": 582,
+      "name": "normalizeSheetDateValue_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 585,
+      "name": "buildFactoryRecapRowsForNik_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 588,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 598,
-      "name": "withDocumentLock",
+      "line": 588,
+      "name": "normalizeSheetDateValue_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 589,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 596,
+      "name": "repairFactoryShiftColumn_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
       "line": 600,
-      "name": "getSpreadsheet",
+      "name": "repairFactoryShiftColumn_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 620,
+      "line": 604,
+      "name": "withDocumentLock",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 606,
       "name": "ensureFactoryHeaderSheets_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 622,
-      "name": "sanitizeSheetNikColumn_",
+      "line": 607,
+      "name": "repairFactoryMasukLog_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 623,
-      "name": "sanitizeSheetNikColumn_",
+      "line": 608,
+      "name": "stringifyRepairSamples_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 624,
-      "name": "sanitizeSheetNikColumn_",
+      "line": 613,
+      "name": "showSpreadsheetAlert_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 625,
-      "name": "sanitizeSheetNikColumn_",
+      "line": 614,
+      "name": "appendRepairLog_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 618,
+      "name": "showSpreadsheetAlert_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 619,
+      "name": "appendRepairLog_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
       "line": 626,
-      "name": "sanitizeSheetNikColumn_",
+      "name": "withDocumentLock",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
       "line": 628,
-      "name": "repairFactoryMasukLog_",
+      "name": "ensureFactoryHeaderSheets_",
       "kind": "internal_gas_call",
       "detail": ""
     },
@@ -8342,42 +8391,217 @@
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 634,
-      "name": "rebuildHistoricalRecapDataset_",
+      "line": 630,
+      "name": "stringifyRepairSamples_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 644,
-      "name": "formatHistoricalRepairSummary_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 646,
+      "line": 635,
       "name": "showSpreadsheetAlert_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 647,
+      "line": 636,
       "name": "appendRepairLog_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 652,
+      "line": 640,
       "name": "showSpreadsheetAlert_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 653,
+      "line": 641,
+      "name": "appendRepairLog_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 649,
+      "name": "getKaryawanMapByNIK",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 650,
+      "name": "collectFactoryLogEvents_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 655,
+      "name": "collectFactoryLogEvents_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 661,
+      "name": "buildFactoryRecapRowsFromEvents_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 662,
+      "name": "rewriteFactoryRecapSheet_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 675,
+      "name": "getSheet",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 681,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 686,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 687,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 703,
+      "name": "withDocumentLock",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 705,
+      "name": "getSpreadsheet",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 725,
+      "name": "ensureFactoryHeaderSheets_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 727,
+      "name": "sanitizeSheetNikColumn_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 728,
+      "name": "sanitizeSheetNikColumn_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 729,
+      "name": "sanitizeSheetNikColumn_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 730,
+      "name": "sanitizeSheetNikColumn_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 731,
+      "name": "sanitizeSheetNikColumn_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 733,
+      "name": "normalizeFactoryTemporalColumns_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 736,
+      "name": "repairFactoryMasukLog_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 737,
+      "name": "repairFactoryKeluarLog_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 742,
+      "name": "rebuildHistoricalRecapDataset_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 752,
+      "name": "formatHistoricalRepairSummary_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 754,
+      "name": "showSpreadsheetAlert_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 755,
+      "name": "appendRepairLog_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 760,
+      "name": "showSpreadsheetAlert_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 761,
       "name": "appendRepairLog_",
       "kind": "internal_gas_call",
       "detail": ""
@@ -8461,22 +8685,22 @@
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 53,
-      "name": "normalizeCard",
+      "line": 51,
+      "name": "parseSheetDateTime",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 54,
-      "name": "asText",
+      "line": 52,
+      "name": "parseSheetDateTime",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
       "line": 55,
-      "name": "asText",
+      "name": "normalizeCard",
       "kind": "internal_gas_call",
       "detail": ""
     },
@@ -8511,273 +8735,315 @@
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
       "line": 60,
+      "name": "formatDateTime",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 60,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 73,
-      "name": "withDocumentLock",
+      "line": 61,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 62,
+      "name": "formatDateTime",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 62,
+      "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
       "line": 75,
-      "name": "assertCard",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 76,
-      "name": "getKaryawanByNIK",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 79,
-      "name": "nowWIB",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 80,
-      "name": "formatDate",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 81,
-      "name": "formatTime",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 82,
-      "name": "getFactoryFlowStatusFromLogs_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 88,
-      "name": "getBindingStatus",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 94,
-      "name": "escHtml",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 96,
-      "name": "escHtml",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 96,
-      "name": "escHtml",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 97,
-      "name": "escHtml",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 97,
-      "name": "escHtml",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 98,
-      "name": "escHtml",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 105,
-      "name": "getSheet",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 108,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 108,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 108,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 109,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 112,
-      "name": "escHtml",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 112,
-      "name": "escHtml",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 121,
-      "name": "formatDateTime",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 123,
-      "name": "getSheet",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 123,
-      "name": "detectShift",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 124,
-      "name": "safeUpdateRecapAbsen",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 125,
-      "name": "detectShift",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 134,
       "name": "withDocumentLock",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 136,
+      "line": 77,
       "name": "assertCard",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 137,
-      "name": "asText",
+      "line": 78,
+      "name": "getKaryawanByNIK",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 141,
-      "name": "getBindingStatus",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 145,
+      "line": 81,
       "name": "nowWIB",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 146,
-      "name": "formatDateTime",
+      "line": 82,
+      "name": "makeSheetDateValue",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 147,
+      "line": 83,
       "name": "formatDate",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 148,
-      "name": "resolveFactoryWorkDate",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 148,
+      "line": 84,
       "name": "formatTime",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 149,
+      "line": 85,
       "name": "getFactoryFlowStatusFromLogs_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 153,
+      "line": 91,
+      "name": "getBindingStatus",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 97,
+      "name": "escHtml",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 99,
+      "name": "escHtml",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 99,
+      "name": "escHtml",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 100,
+      "name": "escHtml",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 100,
+      "name": "escHtml",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 101,
+      "name": "escHtml",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 108,
       "name": "getSheet",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 111,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 111,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 111,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 112,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 115,
+      "name": "escHtml",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 115,
+      "name": "escHtml",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 124,
+      "name": "makeSheetDateTimeValue",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 125,
+      "name": "formatDateTime",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 127,
+      "name": "applyNumberFormatToCell_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 129,
+      "name": "getSheet",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 130,
+      "name": "detectShift",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 131,
+      "name": "applyNumberFormatToCell_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 132,
+      "name": "safeUpdateRecapAbsen",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 133,
+      "name": "detectShift",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 142,
+      "name": "withDocumentLock",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 144,
+      "name": "assertCard",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 145,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 149,
+      "name": "getBindingStatus",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 153,
+      "name": "nowWIB",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 154,
+      "name": "makeSheetDateTimeValue",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
       "line": 155,
-      "name": "getHeaderIndex",
+      "name": "formatDateTime",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 156,
+      "name": "makeSheetDateValue",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 157,
+      "name": "formatDate",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 158,
+      "name": "resolveFactoryWorkDate",
       "kind": "internal_gas_call",
       "detail": ""
     },
@@ -8791,98 +9057,70 @@
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
       "line": 159,
+      "name": "getFactoryFlowStatusFromLogs_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 163,
       "name": "getSheet",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 159,
+      "line": 165,
+      "name": "getHeaderIndex",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 168,
+      "name": "applyNumberFormatToCell_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 171,
+      "name": "formatTime",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 172,
+      "name": "getSheet",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 173,
       "name": "detectShift",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 160,
+      "line": 174,
+      "name": "applyNumberFormatToCell_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 175,
       "name": "safeUpdateRecapAbsen",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 178,
+      "line": 193,
       "name": "getSheet",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 187,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 187,
-      "name": "formatDate",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 188,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 188,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 189,
-      "name": "formatDateForSort",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 189,
-      "name": "formatDateForSort",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 196,
-      "name": "normalizeCard",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 197,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 198,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 201,
-      "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
@@ -8895,14 +9133,84 @@
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 209,
+      "line": 202,
+      "name": "formatDate",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 203,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 203,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 204,
+      "name": "formatDateForSort",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 204,
+      "name": "formatDateForSort",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 211,
+      "name": "normalizeCard",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 212,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 213,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 216,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 217,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 224,
       "name": "collectRecentRows_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 210,
+      "line": 225,
       "name": "collectRecentRows_",
       "kind": "internal_gas_call",
       "detail": ""
@@ -9175,231 +9483,280 @@
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 11,
+      "line": 10,
+      "name": "parseSheetDate",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/ReportFunctions.gs",
+      "line": 12,
       "name": "formatDate",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 13,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 18,
+      "line": 14,
       "name": "formatDateForSort",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 26,
+      "line": 21,
+      "name": "parseSheetDate",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/ReportFunctions.gs",
+      "line": 22,
       "name": "formatDate",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 28,
+      "line": 22,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 33,
+      "line": 27,
       "name": "formatTime",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 35,
+      "line": 29,
+      "name": "normalizeTimeValue",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/ReportFunctions.gs",
+      "line": 31,
+      "name": "parseSheetDateTime",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/ReportFunctions.gs",
+      "line": 32,
+      "name": "formatTime",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/ReportFunctions.gs",
+      "line": 32,
       "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/ReportFunctions.gs",
+      "line": 36,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/ReportFunctions.gs",
+      "line": 38,
+      "name": "parseSheetDate",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
       "line": 39,
-      "name": "asText",
+      "name": "formatDate",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 40,
+      "line": 41,
       "name": "formatSheetDateValue",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 44,
+      "line": 45,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 45,
-      "name": "formatSheetTimeValue",
+      "line": 47,
+      "name": "normalizeTimeValue",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
       "line": 49,
+      "name": "parseSheetDateTime",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/ReportFunctions.gs",
+      "line": 50,
+      "name": "formatTime",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/ReportFunctions.gs",
+      "line": 52,
+      "name": "formatSheetTimeValue",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/ReportFunctions.gs",
+      "line": 56,
       "name": "formatDisplayedTimeValue",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 81,
+      "line": 88,
       "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 82,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 86,
-      "name": "getAbsenReportFullData_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
       "line": 89,
-      "name": "buildPaginationMeta_",
+      "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 116,
+      "line": 93,
       "name": "getAbsenReportFullData_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 149,
+      "line": 96,
+      "name": "buildPaginationMeta_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/ReportFunctions.gs",
+      "line": 123,
+      "name": "getAbsenReportFullData_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/ReportFunctions.gs",
+      "line": 156,
       "name": "buildAbsenExportFilename_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 160,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 161,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/ReportFunctions.gs",
       "line": 167,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/ReportFunctions.gs",
+      "line": 168,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/ReportFunctions.gs",
+      "line": 174,
       "name": "getAreaActivityReportFullData_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 170,
+      "line": 177,
       "name": "buildPaginationMeta_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 172,
+      "line": 179,
       "name": "buildPaginationMeta_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 207,
+      "line": 214,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 208,
+      "line": 215,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 209,
+      "line": 216,
       "name": "getPeriodRange",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 210,
+      "line": 217,
       "name": "getSheet",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 220,
+      "line": 227,
       "name": "formatDate",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 221,
+      "line": 228,
       "name": "formatDate",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 229,
+      "line": 236,
       "name": "toDateKey",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 231,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 232,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 235,
+      "line": 238,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
@@ -9407,42 +9764,21 @@
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
       "line": 239,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/ReportFunctions.gs",
+      "line": 242,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/ReportFunctions.gs",
+      "line": 246,
       "name": "formatDisplayedDateValue",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 241,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 243,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 244,
-      "name": "formatDisplayedTimeValue",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 245,
-      "name": "formatDisplayedTimeValue",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 247,
-      "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
@@ -9455,112 +9791,105 @@
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 249,
-      "name": "buildTimeSortKey",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 262,
+      "line": 250,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 263,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 264,
-      "name": "getPeriodRange",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 265,
-      "name": "getSheet",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 275,
-      "name": "getKaryawanMapByNIK",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 285,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 286,
-      "name": "isDateInRange",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 289,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 291,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 295,
-      "name": "normalizeCard",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 297,
-      "name": "formatDisplayedDateValue",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 298,
+      "line": 251,
       "name": "formatDisplayedTimeValue",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 300,
+      "line": 252,
+      "name": "formatDisplayedTimeValue",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/ReportFunctions.gs",
+      "line": 254,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 300,
+      "line": 255,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 301,
+      "line": 256,
+      "name": "buildTimeSortKey",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/ReportFunctions.gs",
+      "line": 269,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/ReportFunctions.gs",
+      "line": 270,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/ReportFunctions.gs",
+      "line": 271,
+      "name": "getPeriodRange",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/ReportFunctions.gs",
+      "line": 272,
+      "name": "getSheet",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/ReportFunctions.gs",
+      "line": 282,
+      "name": "getKaryawanMapByNIK",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/ReportFunctions.gs",
+      "line": 292,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/ReportFunctions.gs",
+      "line": 293,
+      "name": "isDateInRange",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/ReportFunctions.gs",
+      "line": 296,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/ReportFunctions.gs",
+      "line": 298,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
@@ -9568,48 +9897,90 @@
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
       "line": 302,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 303,
-      "name": "asText",
+      "name": "normalizeCard",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
       "line": 304,
-      "name": "asText",
+      "name": "formatDisplayedDateValue",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
       "line": 305,
+      "name": "formatDisplayedTimeValue",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/ReportFunctions.gs",
+      "line": 307,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/ReportFunctions.gs",
+      "line": 307,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/ReportFunctions.gs",
+      "line": 308,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/ReportFunctions.gs",
+      "line": 309,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/ReportFunctions.gs",
+      "line": 310,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/ReportFunctions.gs",
+      "line": 311,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/ReportFunctions.gs",
+      "line": 312,
       "name": "formatDateForSort",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 305,
+      "line": 312,
       "name": "buildTimeSortKey",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 335,
+      "line": 342,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
-      "line": 336,
+      "line": 343,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
@@ -9721,49 +10092,7 @@
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 202,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 217,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 239,
-      "name": "parseSheetDate",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 240,
-      "name": "formatDate",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 240,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 243,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 248,
+      "line": 206,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
@@ -9771,280 +10100,189 @@
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
       "line": 249,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 254,
-      "name": "parseIsoDate",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 282,
-      "name": "formatDate",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 282,
-      "name": "formatDate",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 288,
       "name": "parseSheetDate",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 300,
-      "name": "formatDate",
+      "line": 261,
+      "name": "parseSheetDateTime",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 303,
-      "name": "timeStrToMinutes",
+      "line": 265,
+      "name": "parseSheetDate",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 307,
+      "line": 268,
+      "name": "normalizeTimeValue",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 311,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 313,
+      "line": 326,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 339,
+      "name": "parseSheetDateTime",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 353,
+      "name": "parseSheetDate",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 354,
+      "name": "formatDate",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 354,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 357,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 362,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 363,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 368,
+      "name": "parseIsoDate",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 396,
+      "name": "formatDate",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 396,
+      "name": "formatDate",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 402,
+      "name": "parseSheetDate",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 414,
+      "name": "formatDate",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 417,
+      "name": "timeStrToMinutes",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 421,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 427,
       "name": "getShiftEventMatch_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 366,
+      "line": 480,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 373,
+      "line": 487,
       "name": "normalizeShiftLabel",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 378,
-      "name": "getShiftDefinition_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 385,
-      "name": "normalizeShiftLabel",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 395,
-      "name": "getShiftRange_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 433,
-      "name": "formatDate",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 436,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 449,
-      "name": "formatDate",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 451,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 466,
-      "name": "timeStrToMinutes",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 467,
-      "name": "timeStrToMinutes",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 469,
-      "name": "normalizeTimeValue",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 469,
-      "name": "normalizeTimeValue",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 473,
-      "name": "normalizeTimeValue",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 473,
-      "name": "normalizeTimeValue",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 485,
-      "name": "isMinuteInRange",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 490,
-      "name": "timeStrToMinutes",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
       "line": 492,
-      "name": "getShiftEventMatch_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 496,
-      "name": "timeStrToMinutes",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 502,
-      "name": "getShiftEventMatch_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 514,
-      "name": "parseIsoDate",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 514,
-      "name": "parseSheetDate",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 515,
-      "name": "formatDate",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 515,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 516,
-      "name": "detectShift",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 517,
-      "name": "timeStrToMinutes",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 518,
       "name": "getShiftDefinition_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 528,
+      "line": 499,
+      "name": "normalizeShiftLabel",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 509,
+      "name": "getShiftRange_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 547,
       "name": "formatDate",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 538,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 539,
-      "name": "detectShift",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 548,
-      "name": "getKaryawanExpectedForDate",
       "kind": "internal_gas_call",
       "detail": ""
     },
@@ -10057,421 +10295,379 @@
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 552,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 553,
-      "name": "asText",
+      "line": 563,
+      "name": "formatDate",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
       "line": 565,
-      "name": "parseIsoDate",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 565,
-      "name": "parseSheetDate",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 567,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 567,
-      "name": "inferShiftByEventTime",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 574,
-      "name": "formatDate",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 575,
-      "name": "formatDate",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 576,
-      "name": "getExpectedShiftForNikOnDate",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 577,
-      "name": "getExpectedShiftForNikOnDate",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 578,
-      "name": "inferShiftByEventTime",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 579,
+      "line": 580,
       "name": "timeStrToMinutes",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 582,
-      "name": "matchesShiftEventTime",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 585,
-      "name": "matchesShiftEventTime",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 594,
-      "name": "matchesShiftEventTime",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 600,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 613,
-      "name": "getShiftDefinition_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 615,
+      "line": 581,
       "name": "timeStrToMinutes",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 647,
-      "name": "getShiftRange_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 649,
-      "name": "timeStrToMinutes",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 651,
-      "name": "getShiftEventMatch_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 663,
-      "name": "getShiftRange_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 665,
-      "name": "timeStrToMinutes",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 667,
-      "name": "getShiftEventMatch_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 707,
-      "name": "normalizeCard",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 746,
-      "name": "isExternalKaryawan",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 766,
-      "name": "getSheet",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 770,
-      "name": "makeRecapKey",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 773,
-      "name": "makeRecapKey",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 774,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 792,
-      "name": "parseSheetDate",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 793,
-      "name": "formatDate",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 793,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 794,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 800,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 801,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 814,
-      "name": "getKaryawanByNIK",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 815,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 816,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 817,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 820,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 823,
-      "name": "parseSheetDate",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 823,
-      "name": "formatDate",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 823,
-      "name": "parseSheetDate",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 823,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 824,
+      "line": 583,
       "name": "normalizeTimeValue",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 827,
-      "name": "resolveRecapShiftContext",
+      "line": 583,
+      "name": "normalizeTimeValue",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 828,
+      "line": 587,
+      "name": "normalizeTimeValue",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 587,
+      "name": "normalizeTimeValue",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 599,
+      "name": "isMinuteInRange",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 604,
+      "name": "timeStrToMinutes",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 606,
+      "name": "getShiftEventMatch_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 610,
+      "name": "timeStrToMinutes",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 616,
+      "name": "getShiftEventMatch_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 628,
+      "name": "parseIsoDate",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 628,
+      "name": "parseSheetDate",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 629,
+      "name": "formatDate",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 629,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 830,
+      "line": 630,
+      "name": "detectShift",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 631,
+      "name": "timeStrToMinutes",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 632,
+      "name": "getShiftDefinition_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 642,
+      "name": "formatDate",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 652,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 831,
+      "line": 653,
+      "name": "detectShift",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 662,
+      "name": "getKaryawanExpectedForDate",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 664,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 666,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 667,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 679,
+      "name": "parseIsoDate",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 679,
+      "name": "parseSheetDate",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 681,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 681,
+      "name": "inferShiftByEventTime",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 688,
+      "name": "formatDate",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 689,
+      "name": "formatDate",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 690,
+      "name": "getExpectedShiftForNikOnDate",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 691,
+      "name": "getExpectedShiftForNikOnDate",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 692,
+      "name": "inferShiftByEventTime",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 693,
+      "name": "timeStrToMinutes",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 696,
+      "name": "matchesShiftEventTime",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 699,
+      "name": "matchesShiftEventTime",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 708,
+      "name": "matchesShiftEventTime",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 714,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 727,
+      "name": "getShiftDefinition_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 729,
+      "name": "timeStrToMinutes",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 761,
+      "name": "getShiftRange_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 763,
+      "name": "timeStrToMinutes",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 765,
+      "name": "getShiftEventMatch_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 777,
+      "name": "getShiftRange_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 779,
+      "name": "timeStrToMinutes",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 781,
+      "name": "getShiftEventMatch_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 821,
       "name": "normalizeCard",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 832,
-      "name": "asText",
+      "line": 860,
+      "name": "isExternalKaryawan",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 839,
-      "name": "compareTimeValues",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 847,
-      "name": "compareTimeValues",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 854,
+      "line": 880,
       "name": "getSheet",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 855,
-      "name": "absorbRow",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 857,
-      "name": "getSheet",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 858,
-      "name": "absorbRow",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 878,
-      "name": "getSheet",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 883,
-      "name": "asText",
+      "line": 884,
+      "name": "makeRecapKey",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
       "line": 887,
-      "name": "asText",
+      "name": "makeRecapKey",
       "kind": "internal_gas_call",
       "detail": ""
     },
@@ -10484,49 +10680,21 @@
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 889,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 890,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 891,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 892,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 900,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 903,
-      "name": "getSheet",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
       "line": 906,
+      "name": "parseSheetDate",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 907,
+      "name": "formatDate",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 907,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
@@ -10540,49 +10708,28 @@
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 909,
+      "line": 914,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 910,
+      "line": 915,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 911,
-      "name": "asText",
+      "line": 928,
+      "name": "getKaryawanByNIK",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 912,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 913,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 922,
-      "name": "getSheet",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 924,
+      "line": 929,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
@@ -10603,20 +10750,6 @@
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 932,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 933,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
       "line": 934,
       "name": "asText",
       "kind": "internal_gas_call",
@@ -10625,97 +10758,377 @@
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
       "line": 937,
-      "name": "isExternalKaryawan",
+      "name": "parseSheetDate",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 957,
-      "name": "getKaryawanMapByNIK",
+      "line": 937,
+      "name": "formatDate",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 968,
-      "name": "makeKaryawanPayload",
+      "line": 937,
+      "name": "parseSheetDate",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 972,
-      "name": "makeKaryawanPayload",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 984,
-      "name": "requireRole",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 993,
-      "name": "getKaryawanMapByNIK",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 1006,
-      "name": "makeKaryawanPayload",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 1007,
-      "name": "getAvailableDepts",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 1016,
-      "name": "getKaryawanMapByNIK",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 1025,
-      "name": "makeKaryawanPayload",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 1026,
-      "name": "getAvailableDepts",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 1046,
-      "name": "getSpreadsheet",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 1063,
+      "line": 937,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/SharedLib.gs",
-      "line": 1064,
+      "line": 938,
+      "name": "normalizeTimeValue",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 941,
+      "name": "resolveRecapShiftContext",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 942,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 944,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 945,
+      "name": "normalizeCard",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 946,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 953,
+      "name": "compareTimeValues",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 961,
+      "name": "compareTimeValues",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 968,
+      "name": "getSheet",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 969,
+      "name": "absorbRow",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 971,
+      "name": "getSheet",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 972,
+      "name": "absorbRow",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 992,
+      "name": "getSheet",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 997,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 1001,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 1002,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 1003,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 1004,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 1005,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 1006,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 1014,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 1017,
+      "name": "getSheet",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 1020,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 1022,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 1023,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 1024,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 1025,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 1026,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 1027,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 1036,
+      "name": "getSheet",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 1038,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 1044,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 1045,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 1046,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 1047,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 1048,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 1051,
+      "name": "isExternalKaryawan",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 1071,
+      "name": "getKaryawanMapByNIK",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 1082,
+      "name": "makeKaryawanPayload",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 1086,
+      "name": "makeKaryawanPayload",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 1098,
+      "name": "requireRole",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 1107,
+      "name": "getKaryawanMapByNIK",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 1120,
+      "name": "makeKaryawanPayload",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 1121,
+      "name": "getAvailableDepts",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 1130,
+      "name": "getKaryawanMapByNIK",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 1139,
+      "name": "makeKaryawanPayload",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 1140,
+      "name": "getAvailableDepts",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 1160,
+      "name": "getSpreadsheet",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 1177,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/SharedLib.gs",
+      "line": 1178,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""

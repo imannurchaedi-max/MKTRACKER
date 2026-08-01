@@ -197,6 +197,115 @@ function formatDateTime(d) {
   }
 }
 
+function parseSheetDateTime(value) {
+  try {
+    if (Object.prototype.toString.call(value) === '[object Date]' && !isNaN(value.getTime())) {
+      return new Date(value.getTime());
+    }
+
+    const text = asText(value).trim();
+    if (!text) return null;
+
+    let match = text.match(/^(\d{2})\/(\d{2})\/(\d{4})(?:\s+(\d{1,2}):(\d{2})(?::(\d{2}))?)?$/);
+    if (match) {
+      const d = new Date(
+        parseInt(match[3], 10),
+        parseInt(match[2], 10) - 1,
+        parseInt(match[1], 10),
+        parseInt(match[4] || '0', 10),
+        parseInt(match[5] || '0', 10),
+        parseInt(match[6] || '0', 10)
+      );
+      return isNaN(d.getTime()) ? null : d;
+    }
+
+    match = text.match(/^(\d{4})-(\d{2})-(\d{2})(?:\s+(\d{1,2}):(\d{2})(?::(\d{2}))?)?$/);
+    if (match) {
+      const d = new Date(
+        parseInt(match[1], 10),
+        parseInt(match[2], 10) - 1,
+        parseInt(match[3], 10),
+        parseInt(match[4] || '0', 10),
+        parseInt(match[5] || '0', 10),
+        parseInt(match[6] || '0', 10)
+      );
+      return isNaN(d.getTime()) ? null : d;
+    }
+
+    const nativeParsed = new Date(text);
+    if (!isNaN(nativeParsed.getTime())) {
+      return nativeParsed;
+    }
+
+    return null;
+  } catch(e) {
+    Logger.log('SharedLib.parseSheetDateTime: failed - ' + e.message);
+    return null;
+  }
+}
+
+function makeSheetDateValue(value) {
+  try {
+    const parsed = parseSheetDate(value);
+    if (!parsed) return '';
+    return new Date(parsed.getFullYear(), parsed.getMonth(), parsed.getDate());
+  } catch(e) {
+    Logger.log('SharedLib.makeSheetDateValue: failed - ' + e.message);
+    return '';
+  }
+}
+
+function makeSheetDateTimeValue(dateValue, timeValue) {
+  try {
+    if (timeValue === undefined) {
+      const directParsed = parseSheetDateTime(dateValue);
+      return directParsed || '';
+    }
+
+    const baseDate = parseSheetDate(dateValue);
+    if (!baseDate) return '';
+
+    const normalizedTime = normalizeTimeValue(timeValue);
+    const match = normalizedTime.match(/^(\d{2}):(\d{2}):(\d{2})$/);
+    if (!match) {
+      return new Date(baseDate.getFullYear(), baseDate.getMonth(), baseDate.getDate());
+    }
+
+    return new Date(
+      baseDate.getFullYear(),
+      baseDate.getMonth(),
+      baseDate.getDate(),
+      parseInt(match[1], 10),
+      parseInt(match[2], 10),
+      parseInt(match[3], 10)
+    );
+  } catch(e) {
+    Logger.log('SharedLib.makeSheetDateTimeValue: failed - ' + e.message);
+    return '';
+  }
+}
+
+function applyNumberFormatToColumn_(sheet, columnIndex, pattern, startRow) {
+  try {
+    if (!sheet || !columnIndex || !pattern) return;
+    const beginRow = Math.max(2, parseInt(startRow, 10) || 2);
+    const totalRows = sheet.getLastRow() - beginRow + 1;
+    if (totalRows <= 0) return;
+    sheet.getRange(beginRow, columnIndex, totalRows, 1).setNumberFormat(pattern);
+  } catch (e) {
+    Logger.log('SharedLib.applyNumberFormatToColumn_: failed - ' + e.message);
+  }
+}
+
+function applyNumberFormatToCell_(sheet, rowIndex, columnIndex, pattern) {
+  try {
+    if (!sheet || !rowIndex || !columnIndex || !pattern) return;
+    sheet.getRange(rowIndex, columnIndex).setNumberFormat(pattern);
+  } catch (e) {
+    Logger.log('SharedLib.applyNumberFormatToCell_: failed - ' + e.message);
+  }
+}
+
 function parseIsoDate(value) {
   try {
     const parts = asText(value).trim().split('-').map(function(part) { return parseInt(part, 10); });
@@ -225,6 +334,11 @@ function parseSheetDate(value) {
     if (parts.length === 3) {
       const d = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
       return isNaN(d.getTime()) ? null : d;
+    }
+
+    const parsedDateTime = parseSheetDateTime(text);
+    if (parsedDateTime) {
+      return new Date(parsedDateTime.getFullYear(), parsedDateTime.getMonth(), parsedDateTime.getDate());
     }
 
     return null;

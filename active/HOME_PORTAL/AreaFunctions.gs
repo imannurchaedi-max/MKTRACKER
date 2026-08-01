@@ -26,6 +26,7 @@ function scanAreaKerja(noKartuMK, tujuan, catatan, forceMode) {
       };
 
       const now = nowWIB();
+      const tanggalValue = makeSheetDateValue(now);
       const tanggal = formatDate(now);
       const waktu = formatDateTime(now);
       const workContext = resolveFactoryWorkDate(tanggal, formatTime(now), 'keluar');
@@ -55,7 +56,8 @@ function scanAreaKerja(noKartuMK, tujuan, catatan, forceMode) {
       else if (forceMode === 'OUT') inout = 'OUT';
       else                          inout = (lastInOut === 'OUT') ? 'IN' : 'OUT';
 
-      sheetA.appendRow([no, inout, tanggal, formatTime(now), kar.nik, kar.nama, areaTujuan, areaCatatan]);
+      sheetA.appendRow([no, inout, tanggalValue, formatTime(now), kar.nik, kar.nama, areaTujuan, areaCatatan]);
+      applyNumberFormatToCell_(sheetA, sheetA.getLastRow(), 3, 'dd/MM/yyyy');
 
       return {
         ok: true, inout, noKartuMK: no, karyawan: kar, waktu,

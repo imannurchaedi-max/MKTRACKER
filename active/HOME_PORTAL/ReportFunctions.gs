@@ -7,42 +7,49 @@
 
 // ── Date Key Helpers ──────────────────────────────────────
 function toDateKey(value) {
-  if (Object.prototype.toString.call(value) === '[object Date]' && !isNaN(value.getTime())) {
-    return Utilities.formatDate(value, 'Asia/Jakarta', 'yyyyMMdd');
+  const parsed = parseSheetDate(value);
+  if (parsed) {
+    return Utilities.formatDate(parsed, 'Asia/Jakarta', 'yyyyMMdd');
   }
-  const text = asText(value).trim();
-  let match = text.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
-  if (match) return match[3] + match[2] + match[1];
-  match = text.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-  if (match) return match[1] + match[2] + match[3];
-  return formatDateForSort(text);
+  return formatDateForSort(value);
 }
 
 const DEFAULT_REPORT_PAGE_SIZE = 25;
 const MAX_REPORT_PAGE_SIZE = 100;
 
 function formatSheetDateValue(value) {
-  if (Object.prototype.toString.call(value) === '[object Date]' && !isNaN(value.getTime())) {
-    return formatDate(value);
-  }
-  return asText(value);
+  const parsed = parseSheetDate(value);
+  return parsed ? formatDate(parsed) : asText(value);
 }
 
 function formatSheetTimeValue(value) {
   if (Object.prototype.toString.call(value) === '[object Date]' && !isNaN(value.getTime())) {
     return formatTime(value);
   }
-  return asText(value);
+  const normalized = normalizeTimeValue(value);
+  if (normalized) return normalized;
+  const parsed = parseSheetDateTime(value);
+  return parsed ? formatTime(parsed) : asText(value);
 }
 
 function formatDisplayedDateValue(rawValue, displayedValue) {
   const text = asText(displayedValue).trim();
-  return text || formatSheetDateValue(rawValue);
+  if (text) {
+    const parsed = parseSheetDate(text);
+    if (parsed) return formatDate(parsed);
+  }
+  return formatSheetDateValue(rawValue);
 }
 
 function formatDisplayedTimeValue(rawValue, displayedValue) {
   const text = asText(displayedValue).trim();
-  return text || formatSheetTimeValue(rawValue);
+  if (text) {
+    const normalized = normalizeTimeValue(text);
+    if (normalized) return normalized;
+    const parsed = parseSheetDateTime(text);
+    if (parsed) return formatTime(parsed);
+  }
+  return formatSheetTimeValue(rawValue);
 }
 
 function buildTimeSortKey(rawValue, displayedValue) {

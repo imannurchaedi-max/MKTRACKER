@@ -48,6 +48,8 @@ function getBindingStatus(noKartuMK) {
 
     for (let i = data.length - 1; i >= 1; i--) {
       if (normalizeCard(data[i][0]) === no) {
+        const waktuBind = parseSheetDateTime(data[i][5]);
+        const waktuRelease = parseSheetDateTime(data[i][7]);
         return {
           ok: true,
           noKartuMK: normalizeCard(data[i][0]),
@@ -55,9 +57,9 @@ function getBindingStatus(noKartuMK) {
           nama:        asText(data[i][2]),
           dept:        asText(data[i][3]),
           jabatan:     asText(data[i][4]),
-          waktuBind:   asText(data[i][5]),
+          waktuBind:   waktuBind ? formatDateTime(waktuBind) : asText(data[i][5]),
           status:      asText(data[i][6]) || 'FREE',
-          waktuRelease:asText(data[i][7]),
+          waktuRelease:waktuRelease ? formatDateTime(waktuRelease) : asText(data[i][7]),
           row:         i + 1
         };
       }
@@ -77,6 +79,7 @@ function bindKartu(noKartuMK, nik, loker) {
       if (!kar) return { ok: false, msg: 'NIK tidak ditemukan: ' + nik };
 
       const now = nowWIB();
+      const tanggalValue = makeSheetDateValue(now);
       const tanggal = formatDate(now);
       const jam = formatTime(now);
       const factoryStatus = getFactoryFlowStatusFromLogs_(kar.nik, tanggal);
@@ -118,9 +121,14 @@ function bindKartu(noKartuMK, nik, loker) {
         }
       }
 
+      const waktuValue = makeSheetDateTimeValue(now);
       const waktu = formatDateTime(now);
-      sheetB.appendRow([no, kar.nik, kar.nama, kar.dept, kar.jabatan, waktu, 'BOUND']);
-      getSheet(SHEET_MASUK_PABRIK).appendRow([no, kar.nik, kar.nama, tanggal, jam, detectShift(now, 'masuk'), loker || '']);
+      sheetB.appendRow([no, kar.nik, kar.nama, kar.dept, kar.jabatan, waktuValue, 'BOUND']);
+      applyNumberFormatToCell_(sheetB, sheetB.getLastRow(), 6, 'dd/MM/yyyy HH:mm:ss');
+
+      const sheetMasuk = getSheet(SHEET_MASUK_PABRIK);
+      sheetMasuk.appendRow([no, kar.nik, kar.nama, tanggalValue, jam, detectShift(now, 'masuk'), loker || '']);
+      applyNumberFormatToCell_(sheetMasuk, sheetMasuk.getLastRow(), 4, 'dd/MM/yyyy');
       safeUpdateRecapAbsen(tanggal, kar.nik, kar.nama, kar.dept, kar.jabatan, jam, '', no, loker || '');
       return { ok: true, msg: `Kartu ${no} berhasil diikat ke ${kar.nama}`, karyawan: kar, noKartuMK: no, waktu, shift: detectShift(now, 'masuk') };
     } catch(e) {
@@ -143,7 +151,9 @@ function releaseKartu(noKartuMK, loker) {
       if (binding.status !== 'BOUND') return { ok: false, msg: `Kartu / ID ${no} tidak dalam status terikat.` };
 
       const now = nowWIB();
+      const waktuValue = makeSheetDateTimeValue(now);
       const waktu = formatDateTime(now);
+      const tanggalValue = makeSheetDateValue(now);
       const tanggal = formatDate(now);
       const workContext = resolveFactoryWorkDate(tanggal, formatTime(now), 'keluar');
       const factoryStatus = getFactoryFlowStatusFromLogs_(binding.nik, workContext.tanggal || tanggal);
@@ -153,10 +163,15 @@ function releaseKartu(noKartuMK, loker) {
       const sheetB = getSheet(SHEET_BINDING);
       sheetB.getRange(binding.row, 7).setValue('FREE');
       const releaseCol = getHeaderIndex(sheetB, 'WAKTU_RELEASE');
-      if (releaseCol > 0) sheetB.getRange(binding.row, releaseCol).setValue(waktu);
+      if (releaseCol > 0) {
+        sheetB.getRange(binding.row, releaseCol).setValue(waktuValue);
+        applyNumberFormatToCell_(sheetB, binding.row, releaseCol, 'dd/MM/yyyy HH:mm:ss');
+      }
 
       const jam = formatTime(now);
-      getSheet(SHEET_KELUAR_PABRIK).appendRow([no, binding.nik, binding.nama, tanggal, jam, detectShift(now, 'keluar'), loker || '']);
+      const sheetKeluar = getSheet(SHEET_KELUAR_PABRIK);
+      sheetKeluar.appendRow([no, binding.nik, binding.nama, tanggalValue, jam, detectShift(now, 'keluar'), loker || '']);
+      applyNumberFormatToCell_(sheetKeluar, sheetKeluar.getLastRow(), 4, 'dd/MM/yyyy');
       safeUpdateRecapAbsen(tanggal, binding.nik, binding.nama, binding.dept, binding.jabatan, '', jam, no, loker || '');
       return {
         ok: true, msg: `Kartu ${no} berhasil dilepas dari ${binding.nama}`,
