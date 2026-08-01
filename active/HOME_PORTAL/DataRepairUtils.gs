@@ -699,67 +699,398 @@ function rebuildHistoricalRecapDataset_(options) {
   return report;
 }
 
-function fixAllSpreadsheetErrors() {
+const REPAIR_PROGRESS_JOB_PROPERTY_KEY = 'DAM_REPAIR_PROGRESS_JOB';
+
+function createHistoricalRepairReport_() {
+  return {
+    renamedTabs: [],
+    cleanedNiks: 0,
+    normalizedTemporalCells: 0,
+    fixedMasukShifts: 0,
+    fixedKeluarShifts: 0,
+    repairedRecaps: 0,
+    fixedBindings: 0,
+    pairedSelesai: 0,
+    activeDiDalam: 0,
+    keluarTanpaMasuk: 0,
+    msg: ''
+  };
+}
+
+function getRepairProgressStore_() {
+  return PropertiesService.getDocumentProperties();
+}
+
+function getRepairJobTitle_(jobType) {
+  return jobType === 'rebuild_recap'
+    ? 'Generate Ulang Recap Absen'
+    : 'Perbaikan Data Spreadsheet';
+}
+
+function getRepairJobSuccessTitle_(jobType) {
+  return jobType === 'rebuild_recap'
+    ? 'Generate ulang recap absen selesai!'
+    : 'Pembersihan & pemulihan data sukses!';
+}
+
+function getRepairJobSteps_(jobType) {
+  if (jobType === 'rebuild_recap') {
+    return [
+      { id: 'prepare_factory_sheets', label: 'Menyiapkan nama sheet dan header' },
+      { id: 'rebuild_recap', label: 'Membangun ulang recap dari log pabrik' }
+    ];
+  }
+
+  return [
+    { id: 'prepare_factory_sheets', label: 'Menyiapkan nama sheet dan header' },
+    { id: 'clean_nik_columns', label: 'Membersihkan format NIK di sheet utama' },
+    { id: 'normalize_temporal_columns', label: 'Menormalkan tanggal dan jam' },
+    { id: 'repair_masuk_log', label: 'Memperbaiki shift log masuk pabrik' },
+    { id: 'repair_keluar_log', label: 'Memperbaiki shift log keluar pabrik' },
+    { id: 'rebuild_recap', label: 'Membangun ulang recap absen dari log' }
+  ];
+}
+
+function buildRepairProgressJobState_(jobType) {
+  const now = nowWIB();
+  const steps = getRepairJobSteps_(jobType);
+  return {
+    jobId: Utilities.getUuid(),
+    type: jobType,
+    title: getRepairJobTitle_(jobType),
+    status: 'running',
+    totalSteps: steps.length,
+    completedSteps: 0,
+    currentStepId: steps.length ? steps[0].id : '',
+    currentStepLabel: steps.length ? steps[0].label : '',
+    currentStepNumber: steps.length ? 1 : 0,
+    message: 'Proses disiapkan dan siap dijalankan bertahap.',
+    startedAt: formatDateTime(now),
+    startedAtMs: now.getTime(),
+    updatedAt: formatDateTime(now),
+    updatedAtMs: now.getTime(),
+    finishedAt: '',
+    finishedAtMs: 0,
+    logs: ['[' + formatTime(now) + '] Proses dibuat.'],
+    report: createHistoricalRepairReport_(),
+    stepStates: steps.map(function(step, index) {
+      return {
+        id: step.id,
+        label: step.label,
+        order: index + 1,
+        status: index === 0 ? 'ready' : 'pending',
+        detail: ''
+      };
+    })
+  };
+}
+
+function touchRepairProgressJobState_(job) {
+  const now = nowWIB();
+  job.updatedAt = formatDateTime(now);
+  job.updatedAtMs = now.getTime();
+}
+
+function decorateRepairProgressJobState_(job) {
+  if (!job) return null;
+  const totalSteps = Math.max(1, parseInt(job.totalSteps, 10) || 1);
+  const completedSteps = Math.max(0, parseInt(job.completedSteps, 10) || 0);
+  job.totalSteps = totalSteps;
+  job.completedSteps = completedSteps;
+  job.progressPct = Math.max(0, Math.min(100, Math.round((completedSteps / totalSteps) * 100)));
+  job.isFinished = job.status === 'done' || job.status === 'error';
+  job.lastKnownStep = job.currentStepLabel || '';
+  return job;
+}
+
+function saveRepairProgressJobState_(job) {
+  touchRepairProgressJobState_(job);
+  getRepairProgressStore_().setProperty(
+    REPAIR_PROGRESS_JOB_PROPERTY_KEY,
+    JSON.stringify(job)
+  );
+  return decorateRepairProgressJobState_(job);
+}
+
+function loadRepairProgressJobState_() {
+  try {
+    const raw = getRepairProgressStore_().getProperty(REPAIR_PROGRESS_JOB_PROPERTY_KEY);
+    if (!raw) return null;
+    return decorateRepairProgressJobState_(JSON.parse(raw));
+  } catch (e) {
+    Logger.log('loadRepairProgressJobState_ failed: ' + e.message);
+    return null;
+  }
+}
+
+function appendRepairProgressLog_(job, message) {
+  const stamp = formatTime(nowWIB()) || '';
+  const line = '[' + stamp + '] ' + asText(message);
+  job.logs = Array.isArray(job.logs) ? job.logs : [];
+  job.logs.push(line);
+  if (job.logs.length > 25) {
+    job.logs = job.logs.slice(job.logs.length - 25);
+  }
+}
+
+function updateRepairProgressStepState_(job, stepIndex, status, detail) {
+  if (!job || !Array.isArray(job.stepStates) || stepIndex < 0 || stepIndex >= job.stepStates.length) return;
+  job.stepStates[stepIndex].status = status;
+  if (detail !== undefined) {
+    job.stepStates[stepIndex].detail = asText(detail);
+  }
+  const step = job.stepStates[stepIndex];
+  job.currentStepId = step.id;
+  job.currentStepLabel = step.label;
+  job.currentStepNumber = step.order;
+}
+
+function summarizeStepResultDetail_(stepId, result, report) {
+  if (stepId === 'prepare_factory_sheets') {
+    const renamedCount = Array.isArray(report.renamedTabs) ? report.renamedTabs.length : 0;
+    return renamedCount
+      ? 'Nama sheet/header siap. Sheet rename: ' + renamedCount + '.'
+      : 'Nama sheet dan header sudah siap.';
+  }
+  if (stepId === 'clean_nik_columns') {
+    return 'NIK dibersihkan: ' + (result.cleanedNiks || 0) + ' sel.';
+  }
+  if (stepId === 'normalize_temporal_columns') {
+    return 'Tanggal/jam dinormalkan: ' + (result.normalizedTemporalCells || 0) + ' sel.';
+  }
+  if (stepId === 'repair_masuk_log') {
+    return 'Shift masuk dikoreksi: ' + (result.fixedShiftCount || 0) + ' baris.';
+  }
+  if (stepId === 'repair_keluar_log') {
+    return 'Shift keluar dikoreksi: ' + (result.fixedShiftCount || 0) + ' baris.';
+  }
+  if (stepId === 'rebuild_recap') {
+    return 'Rekap dibangun ulang: ' + (report.repairedRecaps || 0) + ' baris.';
+  }
+  return asText(result && result.detail);
+}
+
+function executeRepairProgressStep_(job, step) {
+  const report = job.report || createHistoricalRepairReport_();
+
+  if (step.id === 'prepare_factory_sheets') {
+    const ss = getSpreadsheet();
+    const sheetAreaTruncated = ss.getSheetByName('REGISTRASI MASUK KELUAR AREA KE');
+    if (sheetAreaTruncated && !ss.getSheetByName(SHEET_AREA_KERJA)) {
+      sheetAreaTruncated.setName(SHEET_AREA_KERJA);
+      report.renamedTabs.push('REGISTRASI MASUK KELUAR AREA KE -> ' + SHEET_AREA_KERJA);
+    }
+    ensureFactoryHeaderSheets_();
+    job.report = report;
+    return { detail: summarizeStepResultDetail_(step.id, {}, report) };
+  }
+
+  if (step.id === 'clean_nik_columns') {
+    let cleanedNiks = 0;
+    cleanedNiks += sanitizeSheetNikColumn_(SHEET_KARYAWAN, 1);
+    cleanedNiks += sanitizeSheetNikColumn_(SHEET_BINDING, 2);
+    cleanedNiks += sanitizeSheetNikColumn_(SHEET_AREA_KERJA, 5);
+    cleanedNiks += sanitizeSheetNikColumn_(SHEET_RECAP_ABSEN, 2);
+    cleanedNiks += sanitizeSheetNikColumn_(SHEET_JADWAL, 1);
+    report.cleanedNiks += cleanedNiks;
+    job.report = report;
+    return {
+      cleanedNiks: cleanedNiks,
+      detail: summarizeStepResultDetail_(step.id, { cleanedNiks: cleanedNiks }, report)
+    };
+  }
+
+  if (step.id === 'normalize_temporal_columns') {
+    const temporalNormalization = normalizeFactoryTemporalColumns_();
+    report.normalizedTemporalCells += temporalNormalization.totalNormalized || 0;
+    job.report = report;
+    return {
+      normalizedTemporalCells: temporalNormalization.totalNormalized || 0,
+      detail: summarizeStepResultDetail_(step.id, temporalNormalization, report)
+    };
+  }
+
+  if (step.id === 'repair_masuk_log') {
+    const masukRepair = repairFactoryMasukLog_();
+    report.cleanedNiks += masukRepair.cleanedNikCount || 0;
+    report.fixedMasukShifts = masukRepair.fixedShiftCount || 0;
+    job.report = report;
+    return {
+      fixedShiftCount: masukRepair.fixedShiftCount || 0,
+      detail: summarizeStepResultDetail_(step.id, masukRepair, report)
+    };
+  }
+
+  if (step.id === 'repair_keluar_log') {
+    const keluarRepair = repairFactoryKeluarLog_();
+    report.cleanedNiks += keluarRepair.cleanedNikCount || 0;
+    report.fixedKeluarShifts = keluarRepair.fixedShiftCount || 0;
+    job.report = report;
+    return {
+      fixedShiftCount: keluarRepair.fixedShiftCount || 0,
+      detail: summarizeStepResultDetail_(step.id, keluarRepair, report)
+    };
+  }
+
+  if (step.id === 'rebuild_recap') {
+    const rebuildReport = rebuildHistoricalRecapDataset_({
+      repairLogs: false,
+      syncBindings: true
+    });
+    report.repairedRecaps = rebuildReport.repairedRecaps || 0;
+    report.fixedBindings = rebuildReport.fixedBindings || 0;
+    report.pairedSelesai = rebuildReport.pairedSelesai || 0;
+    report.activeDiDalam = rebuildReport.activeDiDalam || 0;
+    report.keluarTanpaMasuk = rebuildReport.keluarTanpaMasuk || 0;
+    job.report = report;
+    return {
+      repairedRecaps: report.repairedRecaps,
+      detail: summarizeStepResultDetail_(step.id, rebuildReport, report)
+    };
+  }
+
+  return { detail: 'Langkah selesai.' };
+}
+
+function startRepairProgressJob(jobType) {
+  const normalizedType = asText(jobType).trim().toLowerCase();
+  if (normalizedType !== 'fix_all' && normalizedType !== 'rebuild_recap') {
+    return { ok: false, msg: 'Jenis proses tidak dikenali.' };
+  }
+
+  const existing = loadRepairProgressJobState_();
+  if (existing && existing.status === 'running') {
+    if (existing.type === normalizedType) {
+      return { ok: true, reused: true, job: existing };
+    }
+    return {
+      ok: false,
+      msg: 'Masih ada proses lain yang berjalan: ' + existing.title + '. Tunggu selesai dulu.'
+    };
+  }
+
+  const job = buildRepairProgressJobState_(normalizedType);
+  appendRepairProgressLog_(job, 'Proses siap dijalankan.');
+  saveRepairProgressJobState_(job);
+  return { ok: true, reused: false, job: job };
+}
+
+function getRepairProgressState(jobId) {
+  const job = loadRepairProgressJobState_();
+  if (!job) return { ok: false, msg: 'Belum ada proses yang tersimpan.' };
+  if (jobId && job.jobId !== jobId) {
+    return { ok: false, msg: 'ID proses tidak cocok dengan status terakhir.' };
+  }
+  return { ok: job.status !== 'error', job: job, msg: job.message || '' };
+}
+
+function runRepairProgressStep(jobId) {
+  const lock = LockService.getScriptLock();
+  if (!lock.tryLock(1000)) {
+    const current = loadRepairProgressJobState_();
+    return { ok: true, busy: true, job: current };
+  }
+
+  try {
+    const job = loadRepairProgressJobState_();
+    if (!job) return { ok: false, msg: 'Status proses tidak ditemukan.' };
+    if (jobId && job.jobId !== jobId) {
+      return { ok: false, msg: 'ID proses tidak cocok dengan status terakhir.', job: job };
+    }
+    if (job.status === 'done') {
+      return { ok: true, job: job, msg: job.message || '' };
+    }
+    if (job.status === 'error') {
+      return { ok: false, msg: job.message || 'Proses berhenti karena error.', job: job };
+    }
+
+    const steps = getRepairJobSteps_(job.type);
+    const stepIndex = Math.max(0, parseInt(job.completedSteps, 10) || 0);
+    if (stepIndex >= steps.length) {
+      job.status = 'done';
+      job.message = formatHistoricalRepairSummary_(job.report, getRepairJobSuccessTitle_(job.type));
+      job.finishedAt = formatDateTime(nowWIB());
+      job.finishedAtMs = nowWIB().getTime();
+      saveRepairProgressJobState_(job);
+      return { ok: true, job: job, msg: job.message };
+    }
+
+    const step = steps[stepIndex];
+    updateRepairProgressStepState_(job, stepIndex, 'running', 'Sedang diproses...');
+    appendRepairProgressLog_(job, 'Mulai: ' + step.label);
+    saveRepairProgressJobState_(job);
+
+    const stepResult = executeRepairProgressStep_(job, step);
+    job.completedSteps = stepIndex + 1;
+    updateRepairProgressStepState_(job, stepIndex, 'done', stepResult.detail || 'Selesai');
+    appendRepairProgressLog_(job, step.label + ' selesai. ' + (stepResult.detail || ''));
+
+    if (job.completedSteps >= steps.length) {
+      job.status = 'done';
+      job.message = formatHistoricalRepairSummary_(job.report, getRepairJobSuccessTitle_(job.type));
+      job.finishedAt = formatDateTime(nowWIB());
+      job.finishedAtMs = nowWIB().getTime();
+      appendRepairProgressLog_(job, 'Proses selesai.');
+      appendRepairLog_(
+        job.type === 'rebuild_recap' ? 'rebuildRecapAbsenInOutMK' : 'fixAllSpreadsheetErrors',
+        { ok: true, msg: job.message, report: job.report }
+      );
+    } else {
+      const nextStep = steps[job.completedSteps];
+      updateRepairProgressStepState_(job, job.completedSteps, 'ready', job.stepStates[job.completedSteps].detail);
+      job.currentStepId = nextStep.id;
+      job.currentStepLabel = nextStep.label;
+      job.currentStepNumber = job.completedSteps + 1;
+      job.message = 'Langkah terakhir selesai. Lanjut ke: ' + nextStep.label;
+    }
+
+    saveRepairProgressJobState_(job);
+    return { ok: true, job: job, msg: stepResult.detail || '' };
+  } catch (e) {
+    const failedJob = loadRepairProgressJobState_() || buildRepairProgressJobState_('fix_all');
+    failedJob.status = 'error';
+    failedJob.message = 'Gagal memproses: ' + e.message;
+    failedJob.finishedAt = formatDateTime(nowWIB());
+    failedJob.finishedAtMs = nowWIB().getTime();
+    appendRepairProgressLog_(failedJob, failedJob.message);
+    saveRepairProgressJobState_(failedJob);
+    appendRepairLog_(
+      failedJob.type === 'rebuild_recap' ? 'rebuildRecapAbsenInOutMK' : 'fixAllSpreadsheetErrors',
+      { ok: false, msg: failedJob.message, report: failedJob.report }
+    );
+    return { ok: false, msg: failedJob.message, job: failedJob };
+  } finally {
+    lock.releaseLock();
+  }
+}
+
+function fixAllSpreadsheetErrorsNow_() {
   return withDocumentLock(function() {
     try {
-      const ss = getSpreadsheet();
-      const report = {
-        renamedTabs: [],
-        cleanedNiks: 0,
-        fixedMasukShifts: 0,
-        fixedKeluarShifts: 0,
-        repairedRecaps: 0,
-        fixedBindings: 0,
-        pairedSelesai: 0,
-        activeDiDalam: 0,
-        keluarTanpaMasuk: 0,
-        msg: ''
-      };
-
-      const sheetAreaTruncated = ss.getSheetByName('REGISTRASI MASUK KELUAR AREA KE');
-      if (sheetAreaTruncated && !ss.getSheetByName(SHEET_AREA_KERJA)) {
-        sheetAreaTruncated.setName(SHEET_AREA_KERJA);
-        report.renamedTabs.push('REGISTRASI MASUK KELUAR AREA KE -> ' + SHEET_AREA_KERJA);
+      const job = buildRepairProgressJobState_('fix_all');
+      const steps = getRepairJobSteps_('fix_all');
+      for (let i = 0; i < steps.length; i++) {
+        executeRepairProgressStep_(job, steps[i]);
+        job.completedSteps = i + 1;
       }
-
-      ensureFactoryHeaderSheets_();
-
-      report.cleanedNiks += sanitizeSheetNikColumn_(SHEET_KARYAWAN, 1);
-      report.cleanedNiks += sanitizeSheetNikColumn_(SHEET_BINDING, 2);
-      report.cleanedNiks += sanitizeSheetNikColumn_(SHEET_AREA_KERJA, 5);
-      report.cleanedNiks += sanitizeSheetNikColumn_(SHEET_RECAP_ABSEN, 2);
-      report.cleanedNiks += sanitizeSheetNikColumn_(SHEET_JADWAL, 1);
-
-      const temporalNormalization = normalizeFactoryTemporalColumns_();
-      report.normalizedTemporalCells = temporalNormalization.totalNormalized || 0;
-
-      const masukRepair = repairFactoryMasukLog_();
-      const keluarRepair = repairFactoryKeluarLog_();
-      report.cleanedNiks += (masukRepair.cleanedNikCount || 0) + (keluarRepair.cleanedNikCount || 0);
-      report.fixedMasukShifts = masukRepair.fixedShiftCount || 0;
-      report.fixedKeluarShifts = keluarRepair.fixedShiftCount || 0;
-
-      const rebuildReport = rebuildHistoricalRecapDataset_({
-        repairLogs: false,
-        syncBindings: true
-      });
-      report.repairedRecaps = rebuildReport.repairedRecaps || 0;
-      report.fixedBindings = rebuildReport.fixedBindings || 0;
-      report.pairedSelesai = rebuildReport.pairedSelesai || 0;
-      report.activeDiDalam = rebuildReport.activeDiDalam || 0;
-      report.keluarTanpaMasuk = rebuildReport.keluarTanpaMasuk || 0;
-
-      report.msg = formatHistoricalRepairSummary_(report, 'Pembersihan & pemulihan data sukses!');
-      Logger.log(report.msg);
-      showSpreadsheetAlert_(report.msg);
-      appendRepairLog_('fixAllSpreadsheetErrors', { ok: true, msg: report.msg, report: report });
-      return { ok: true, report: report };
+      job.message = formatHistoricalRepairSummary_(job.report, getRepairJobSuccessTitle_('fix_all'));
+      job.report.msg = job.message;
+      showSpreadsheetAlert_(job.message);
+      appendRepairLog_('fixAllSpreadsheetErrors', { ok: true, msg: job.message, report: job.report });
+      return { ok: true, report: job.report, msg: job.message };
     } catch (e) {
       const msg = 'Gagal perbaiki data: ' + e.message;
-      Logger.log('fixAllSpreadsheetErrors failed: ' + e.message);
       showSpreadsheetAlert_(msg);
       appendRepairLog_('fixAllSpreadsheetErrors', { ok: false, msg: msg });
       return { ok: false, msg: msg };
     }
   });
+}
+
+function fixAllSpreadsheetErrors() {
+  showRepairProgressDialog_(
+    'fix_all',
+    'Perbaikan Data Spreadsheet',
+    'Sistem akan membersihkan NIK, menormalkan tanggal dan jam, memperbaiki shift, lalu membangun ulang recap secara bertahap.'
+  );
 }

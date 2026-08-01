@@ -13,17 +13,17 @@
     {
       "file": ".gitnexus/gitnexus.json",
       "kind": "json",
-      "bytes": 27116
+      "bytes": 8244
     },
     {
       "file": ".gitnexus/meta.json",
       "kind": "json",
-      "bytes": 27116
+      "bytes": 8244
     },
     {
-      "file": ".gitnexus/parse-cache/dc523b4b0e0c2d4a8e8abb98b6fe653420934de22b838fadc48121715886cf6b.json",
+      "file": ".gitnexus/parse-cache/32091cf66eb07f33ac98b978b2821c1a1a578b8e4a9273b8603eb5467f49bc2e.json",
       "kind": "json",
-      "bytes": 7072457
+      "bytes": 702731
     },
     {
       "file": ".gitnexus/parse-cache/index.json",
@@ -36,14 +36,9 @@
       "bytes": 98
     },
     {
-      "file": ".gitnexus/parsedfile-cache/dc523b4b0e0c2d4a8e8abb98b6fe653420934de22b838fadc48121715886cf6b/dc523b4b0e0c2d4a8e8abb98b6fe653420934de22b838fadc48121715886cf6b-w1-0.json",
+      "file": ".gitnexus/parsedfile-cache/32091cf66eb07f33ac98b978b2821c1a1a578b8e4a9273b8603eb5467f49bc2e/32091cf66eb07f33ac98b978b2821c1a1a578b8e4a9273b8603eb5467f49bc2e-w1-0.json",
       "kind": "json",
-      "bytes": 8414750
-    },
-    {
-      "file": ".gitnexus/parsedfile-cache/dc523b4b0e0c2d4a8e8abb98b6fe653420934de22b838fadc48121715886cf6b/dc523b4b0e0c2d4a8e8abb98b6fe653420934de22b838fadc48121715886cf6b-w1-1.json",
-      "kind": "json",
-      "bytes": 6995474
+      "bytes": 1124508
     },
     {
       "file": "active/HOME_PORTAL/.clasp.json",
@@ -58,17 +53,17 @@
     {
       "file": "active/HOME_PORTAL/Code.js",
       "kind": "gas",
-      "bytes": 5454
+      "bytes": 5927
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
       "kind": "gas",
-      "bytes": 25742
+      "bytes": 37551
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
       "kind": "gas",
-      "bytes": 10980
+      "bytes": 11418
     },
     {
       "file": "active/HOME_PORTAL/Index.html",
@@ -79,6 +74,11 @@
       "file": "active/HOME_PORTAL/JadwalFunctions.gs",
       "kind": "gas",
       "bytes": 7447
+    },
+    {
+      "file": "active/HOME_PORTAL/RepairProgressDialog.html",
+      "kind": "html",
+      "bytes": 14479
     },
     {
       "file": "active/HOME_PORTAL/ReportFunctions.gs",
@@ -925,13 +925,20 @@
     {
       "file": "active/HOME_PORTAL/Code.js",
       "line": 36,
+      "name": "showRepairProgressDialog_",
+      "kind": "gas_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/Code.js",
+      "line": 52,
       "name": "openHomePortalLauncher",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/Code.js",
-      "line": 142,
+      "line": 158,
       "name": "searchKaryawan",
       "kind": "gas_function",
       "detail": ""
@@ -1134,7 +1141,133 @@
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 702,
+      "line": 704,
+      "name": "createHistoricalRepairReport_",
+      "kind": "gas_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 720,
+      "name": "getRepairProgressStore_",
+      "kind": "gas_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 724,
+      "name": "getRepairJobTitle_",
+      "kind": "gas_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 730,
+      "name": "getRepairJobSuccessTitle_",
+      "kind": "gas_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 736,
+      "name": "getRepairJobSteps_",
+      "kind": "gas_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 754,
+      "name": "buildRepairProgressJobState_",
+      "kind": "gas_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 788,
+      "name": "touchRepairProgressJobState_",
+      "kind": "gas_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 794,
+      "name": "decorateRepairProgressJobState_",
+      "kind": "gas_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 806,
+      "name": "saveRepairProgressJobState_",
+      "kind": "gas_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 815,
+      "name": "loadRepairProgressJobState_",
+      "kind": "gas_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 826,
+      "name": "appendRepairProgressLog_",
+      "kind": "gas_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 836,
+      "name": "updateRepairProgressStepState_",
+      "kind": "gas_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 848,
+      "name": "summarizeStepResultDetail_",
+      "kind": "gas_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 873,
+      "name": "executeRepairProgressStep_",
+      "kind": "gas_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 955,
+      "name": "startRepairProgressJob",
+      "kind": "gas_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 978,
+      "name": "getRepairProgressState",
+      "kind": "gas_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 987,
+      "name": "runRepairProgressStep",
+      "kind": "gas_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1067,
+      "name": "fixAllSpreadsheetErrorsNow_",
+      "kind": "gas_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1090,
       "name": "fixAllSpreadsheetErrors",
       "kind": "gas_function",
       "detail": ""
@@ -1156,41 +1289,48 @@
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
       "line": 24,
+      "name": "rebuildRecapAbsenInOutMKNow_",
+      "kind": "gas_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 44,
       "name": "rebuildRecapAbsenInOutMK",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 43,
+      "line": 53,
       "name": "getBindingStatus",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 74,
+      "line": 84,
       "name": "bindKartu",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 141,
+      "line": 151,
       "name": "releaseKartu",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 187,
+      "line": 197,
       "name": "getRecentFactoryGateLogs",
       "kind": "gas_function",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 192,
+      "line": 202,
       "name": "collectRecentRows_",
       "kind": "gas_function",
       "detail": ""
@@ -2793,6 +2933,104 @@
     }
   ],
   "frontend_functions": [
+    {
+      "file": "active/HOME_PORTAL/RepairProgressDialog.html",
+      "line": 271,
+      "name": "bootstrap",
+      "kind": "frontend_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/RepairProgressDialog.html",
+      "line": 294,
+      "name": "queueNextStep",
+      "kind": "frontend_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/RepairProgressDialog.html",
+      "line": 328,
+      "name": "refreshState",
+      "kind": "frontend_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/RepairProgressDialog.html",
+      "line": 346,
+      "name": "startPolling",
+      "kind": "frontend_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/RepairProgressDialog.html",
+      "line": 351,
+      "name": "stopPolling",
+      "kind": "frontend_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/RepairProgressDialog.html",
+      "line": 362,
+      "name": "renderJob",
+      "kind": "frontend_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/RepairProgressDialog.html",
+      "line": 395,
+      "name": "renderSteps",
+      "kind": "frontend_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/RepairProgressDialog.html",
+      "line": 420,
+      "name": "renderLogs",
+      "kind": "frontend_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/RepairProgressDialog.html",
+      "line": 426,
+      "name": "setStatus",
+      "kind": "frontend_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/RepairProgressDialog.html",
+      "line": 432,
+      "name": "enableContinue",
+      "kind": "frontend_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/RepairProgressDialog.html",
+      "line": 436,
+      "name": "setHint",
+      "kind": "frontend_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/RepairProgressDialog.html",
+      "line": 440,
+      "name": "handleFailure",
+      "kind": "frontend_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/RepairProgressDialog.html",
+      "line": 446,
+      "name": "statusLabel",
+      "kind": "frontend_function",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/RepairProgressDialog.html",
+      "line": 454,
+      "name": "escapeHtml",
+      "kind": "frontend_function",
+      "detail": ""
+    },
     {
       "file": "active/HOME_PORTAL/app.html",
       "line": 68,
@@ -5414,6 +5652,27 @@
   ],
   "frontend_server_calls": [
     {
+      "file": "active/HOME_PORTAL/RepairProgressDialog.html",
+      "line": 291,
+      "name": "startRepairProgressJob",
+      "kind": "google_script_run",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/RepairProgressDialog.html",
+      "line": 325,
+      "name": "runRepairProgressStep",
+      "kind": "google_script_run",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/RepairProgressDialog.html",
+      "line": 343,
+      "name": "getRepairProgressState",
+      "kind": "google_script_run",
+      "detail": ""
+    },
+    {
       "file": "active/HOME_PORTAL/app.html",
       "line": 397,
       "name": "verifySession",
@@ -6135,42 +6394,42 @@
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 45,
+      "line": 55,
       "name": "SHEET_BINDING",
       "kind": "sheet_dependency",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 108,
+      "line": 118,
       "name": "SHEET_BINDING",
       "kind": "sheet_dependency",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 129,
+      "line": 139,
       "name": "SHEET_MASUK_PABRIK",
       "kind": "sheet_dependency",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 163,
+      "line": 173,
       "name": "SHEET_BINDING",
       "kind": "sheet_dependency",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 172,
+      "line": 182,
       "name": "SHEET_KELUAR_PABRIK",
       "kind": "sheet_dependency",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 193,
+      "line": 203,
       "name": "sheetName",
       "kind": "sheet_dependency",
       "detail": ""
@@ -7503,7 +7762,7 @@
     {
       "file": "active/HOME_PORTAL/Code.js",
       "line": 38,
-      "name": "getModuleUrls",
+      "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
@@ -7516,49 +7775,28 @@
     },
     {
       "file": "active/HOME_PORTAL/Code.js",
-      "line": 144,
+      "line": 40,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/Code.js",
-      "line": 150,
+      "line": 48,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/Code.js",
-      "line": 151,
-      "name": "asText",
+      "line": 54,
+      "name": "getModuleUrls",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/Code.js",
-      "line": 156,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/Code.js",
-      "line": 157,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/Code.js",
-      "line": 158,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/Code.js",
-      "line": 159,
+      "line": 55,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
@@ -7566,6 +7804,55 @@
     {
       "file": "active/HOME_PORTAL/Code.js",
       "line": 160,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/Code.js",
+      "line": 166,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/Code.js",
+      "line": 167,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/Code.js",
+      "line": 172,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/Code.js",
+      "line": 173,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/Code.js",
+      "line": 174,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/Code.js",
+      "line": 175,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/Code.js",
+      "line": 176,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
@@ -8489,120 +8776,603 @@
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 703,
-      "name": "withDocumentLock",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 705,
-      "name": "getSpreadsheet",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 725,
-      "name": "ensureFactoryHeaderSheets_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 727,
-      "name": "sanitizeSheetNikColumn_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 728,
-      "name": "sanitizeSheetNikColumn_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 729,
-      "name": "sanitizeSheetNikColumn_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 730,
-      "name": "sanitizeSheetNikColumn_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 731,
-      "name": "sanitizeSheetNikColumn_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 733,
-      "name": "normalizeFactoryTemporalColumns_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 736,
-      "name": "repairFactoryMasukLog_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 737,
-      "name": "repairFactoryKeluarLog_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 742,
-      "name": "rebuildHistoricalRecapDataset_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 752,
-      "name": "formatHistoricalRepairSummary_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 754,
-      "name": "showSpreadsheetAlert_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
       "line": 755,
-      "name": "appendRepairLog_",
+      "name": "nowWIB",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 756,
+      "name": "getRepairJobSteps_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
       "line": 760,
+      "name": "getRepairJobTitle_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 768,
+      "name": "formatDateTime",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 770,
+      "name": "formatDateTime",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 774,
+      "name": "formatTime",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 775,
+      "name": "createHistoricalRepairReport_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 789,
+      "name": "nowWIB",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 790,
+      "name": "formatDateTime",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 807,
+      "name": "touchRepairProgressJobState_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 808,
+      "name": "getRepairProgressStore_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 812,
+      "name": "decorateRepairProgressJobState_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 817,
+      "name": "getRepairProgressStore_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 819,
+      "name": "decorateRepairProgressJobState_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 827,
+      "name": "formatTime",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 827,
+      "name": "nowWIB",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 828,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 840,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 870,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 874,
+      "name": "createHistoricalRepairReport_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 877,
+      "name": "getSpreadsheet",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 883,
+      "name": "ensureFactoryHeaderSheets_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 885,
+      "name": "summarizeStepResultDetail_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 890,
+      "name": "sanitizeSheetNikColumn_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 891,
+      "name": "sanitizeSheetNikColumn_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 892,
+      "name": "sanitizeSheetNikColumn_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 893,
+      "name": "sanitizeSheetNikColumn_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 894,
+      "name": "sanitizeSheetNikColumn_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 899,
+      "name": "summarizeStepResultDetail_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 904,
+      "name": "normalizeFactoryTemporalColumns_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 909,
+      "name": "summarizeStepResultDetail_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 914,
+      "name": "repairFactoryMasukLog_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 920,
+      "name": "summarizeStepResultDetail_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 925,
+      "name": "repairFactoryKeluarLog_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 931,
+      "name": "summarizeStepResultDetail_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 936,
+      "name": "rebuildHistoricalRecapDataset_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 948,
+      "name": "summarizeStepResultDetail_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 956,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 961,
+      "name": "loadRepairProgressJobState_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 972,
+      "name": "buildRepairProgressJobState_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 973,
+      "name": "appendRepairProgressLog_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 974,
+      "name": "saveRepairProgressJobState_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 979,
+      "name": "loadRepairProgressJobState_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 990,
+      "name": "loadRepairProgressJobState_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 995,
+      "name": "loadRepairProgressJobState_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1007,
+      "name": "getRepairJobSteps_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1011,
+      "name": "formatHistoricalRepairSummary_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1011,
+      "name": "getRepairJobSuccessTitle_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1012,
+      "name": "formatDateTime",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1012,
+      "name": "nowWIB",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1013,
+      "name": "nowWIB",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1014,
+      "name": "saveRepairProgressJobState_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1019,
+      "name": "updateRepairProgressStepState_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1020,
+      "name": "appendRepairProgressLog_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1021,
+      "name": "saveRepairProgressJobState_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1023,
+      "name": "executeRepairProgressStep_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1025,
+      "name": "updateRepairProgressStepState_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1026,
+      "name": "appendRepairProgressLog_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1030,
+      "name": "formatHistoricalRepairSummary_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1030,
+      "name": "getRepairJobSuccessTitle_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1031,
+      "name": "formatDateTime",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1031,
+      "name": "nowWIB",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1032,
+      "name": "nowWIB",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1033,
+      "name": "appendRepairProgressLog_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1034,
+      "name": "appendRepairLog_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1040,
+      "name": "updateRepairProgressStepState_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1047,
+      "name": "saveRepairProgressJobState_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1050,
+      "name": "loadRepairProgressJobState_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1050,
+      "name": "buildRepairProgressJobState_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1053,
+      "name": "formatDateTime",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1053,
+      "name": "nowWIB",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1054,
+      "name": "nowWIB",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1055,
+      "name": "appendRepairProgressLog_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1056,
+      "name": "saveRepairProgressJobState_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1057,
+      "name": "appendRepairLog_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1068,
+      "name": "withDocumentLock",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1070,
+      "name": "buildRepairProgressJobState_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1071,
+      "name": "getRepairJobSteps_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1073,
+      "name": "executeRepairProgressStep_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1076,
+      "name": "formatHistoricalRepairSummary_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1076,
+      "name": "getRepairJobSuccessTitle_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1078,
       "name": "showSpreadsheetAlert_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/DataRepairUtils.gs",
-      "line": 761,
+      "line": 1079,
       "name": "appendRepairLog_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1083,
+      "name": "showSpreadsheetAlert_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1084,
+      "name": "appendRepairLog_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/DataRepairUtils.gs",
+      "line": 1091,
+      "name": "showRepairProgressDialog_",
       "kind": "internal_gas_call",
       "detail": ""
     },
@@ -8657,525 +9427,511 @@
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 36,
+      "line": 33,
+      "name": "appendRepairLog_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 37,
       "name": "showSpreadsheetAlert_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 38,
+      "name": "appendRepairLog_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
       "line": 45,
-      "name": "getSheet",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 47,
-      "name": "assertCard",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 50,
-      "name": "normalizeCard",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 51,
-      "name": "parseSheetDateTime",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 52,
-      "name": "parseSheetDateTime",
+      "name": "showRepairProgressDialog_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
       "line": 55,
-      "name": "normalizeCard",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 56,
-      "name": "asText",
+      "name": "getSheet",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
       "line": 57,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 58,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 59,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 60,
-      "name": "formatDateTime",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 60,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 61,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 62,
-      "name": "formatDateTime",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 62,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 75,
-      "name": "withDocumentLock",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 77,
       "name": "assertCard",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 78,
-      "name": "getKaryawanByNIK",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 81,
-      "name": "nowWIB",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 82,
-      "name": "makeSheetDateValue",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 83,
-      "name": "formatDate",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 84,
-      "name": "formatTime",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 85,
-      "name": "getFactoryFlowStatusFromLogs_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 91,
-      "name": "getBindingStatus",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 97,
-      "name": "escHtml",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 99,
-      "name": "escHtml",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 99,
-      "name": "escHtml",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 100,
-      "name": "escHtml",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 100,
-      "name": "escHtml",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 101,
-      "name": "escHtml",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 108,
-      "name": "getSheet",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 111,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 111,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 111,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 112,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 115,
-      "name": "escHtml",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 115,
-      "name": "escHtml",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 124,
-      "name": "makeSheetDateTimeValue",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 125,
-      "name": "formatDateTime",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 127,
-      "name": "applyNumberFormatToCell_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 129,
-      "name": "getSheet",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 130,
-      "name": "detectShift",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 131,
-      "name": "applyNumberFormatToCell_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 132,
-      "name": "safeUpdateRecapAbsen",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 133,
-      "name": "detectShift",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 142,
-      "name": "withDocumentLock",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 144,
-      "name": "assertCard",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 145,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 149,
-      "name": "getBindingStatus",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 153,
-      "name": "nowWIB",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 154,
-      "name": "makeSheetDateTimeValue",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 155,
-      "name": "formatDateTime",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 156,
-      "name": "makeSheetDateValue",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 157,
-      "name": "formatDate",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 158,
-      "name": "resolveFactoryWorkDate",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 158,
-      "name": "formatTime",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 159,
-      "name": "getFactoryFlowStatusFromLogs_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 163,
-      "name": "getSheet",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 165,
-      "name": "getHeaderIndex",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 168,
-      "name": "applyNumberFormatToCell_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 171,
-      "name": "formatTime",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 172,
-      "name": "getSheet",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 173,
-      "name": "detectShift",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 174,
-      "name": "applyNumberFormatToCell_",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 175,
-      "name": "safeUpdateRecapAbsen",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 193,
-      "name": "getSheet",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 202,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 202,
-      "name": "formatDate",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 203,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 203,
-      "name": "asText",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 204,
-      "name": "formatDateForSort",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 204,
-      "name": "formatDateForSort",
-      "kind": "internal_gas_call",
-      "detail": ""
-    },
-    {
-      "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 211,
+      "line": 60,
       "name": "normalizeCard",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 61,
+      "name": "parseSheetDateTime",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 62,
+      "name": "parseSheetDateTime",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 65,
+      "name": "normalizeCard",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 66,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 67,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 68,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 69,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 70,
+      "name": "formatDateTime",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 70,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 71,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 72,
+      "name": "formatDateTime",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 72,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 85,
+      "name": "withDocumentLock",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 87,
+      "name": "assertCard",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 88,
+      "name": "getKaryawanByNIK",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 91,
+      "name": "nowWIB",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 92,
+      "name": "makeSheetDateValue",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 93,
+      "name": "formatDate",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 94,
+      "name": "formatTime",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 95,
+      "name": "getFactoryFlowStatusFromLogs_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 101,
+      "name": "getBindingStatus",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 107,
+      "name": "escHtml",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 109,
+      "name": "escHtml",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 109,
+      "name": "escHtml",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 110,
+      "name": "escHtml",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 110,
+      "name": "escHtml",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 111,
+      "name": "escHtml",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 118,
+      "name": "getSheet",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 121,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 121,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 121,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 122,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 125,
+      "name": "escHtml",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 125,
+      "name": "escHtml",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 134,
+      "name": "makeSheetDateTimeValue",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 135,
+      "name": "formatDateTime",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 137,
+      "name": "applyNumberFormatToCell_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 139,
+      "name": "getSheet",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 140,
+      "name": "detectShift",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 141,
+      "name": "applyNumberFormatToCell_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 142,
+      "name": "safeUpdateRecapAbsen",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 143,
+      "name": "detectShift",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 152,
+      "name": "withDocumentLock",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 154,
+      "name": "assertCard",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 155,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 159,
+      "name": "getBindingStatus",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 163,
+      "name": "nowWIB",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 164,
+      "name": "makeSheetDateTimeValue",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 165,
+      "name": "formatDateTime",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 166,
+      "name": "makeSheetDateValue",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 167,
+      "name": "formatDate",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 168,
+      "name": "resolveFactoryWorkDate",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 168,
+      "name": "formatTime",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 169,
+      "name": "getFactoryFlowStatusFromLogs_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 173,
+      "name": "getSheet",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 175,
+      "name": "getHeaderIndex",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 178,
+      "name": "applyNumberFormatToCell_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 181,
+      "name": "formatTime",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 182,
+      "name": "getSheet",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 183,
+      "name": "detectShift",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 184,
+      "name": "applyNumberFormatToCell_",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 185,
+      "name": "safeUpdateRecapAbsen",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 203,
+      "name": "getSheet",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
       "line": 212,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 212,
+      "name": "formatDate",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 213,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
@@ -9189,28 +9945,63 @@
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 216,
+      "line": 214,
+      "name": "formatDateForSort",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 214,
+      "name": "formatDateForSort",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 221,
+      "name": "normalizeCard",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 222,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 217,
+      "line": 223,
       "name": "asText",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 224,
+      "line": 226,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 227,
+      "name": "asText",
+      "kind": "internal_gas_call",
+      "detail": ""
+    },
+    {
+      "file": "active/HOME_PORTAL/GateFunctions.gs",
+      "line": 234,
       "name": "collectRecentRows_",
       "kind": "internal_gas_call",
       "detail": ""
     },
     {
       "file": "active/HOME_PORTAL/GateFunctions.gs",
-      "line": 225,
+      "line": 235,
       "name": "collectRecentRows_",
       "kind": "internal_gas_call",
       "detail": ""

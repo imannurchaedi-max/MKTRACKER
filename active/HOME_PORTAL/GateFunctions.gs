@@ -21,7 +21,7 @@ function safeUpdateRecapAbsen(tanggal, nik, nama, dept, jabatan, jamMasuk, jamKe
   }
 }
 
-function rebuildRecapAbsenInOutMK() {
+function rebuildRecapAbsenInOutMKNow_() {
   return withDocumentLock(function() {
     try {
       const report = rebuildHistoricalRecapDataset_({
@@ -30,13 +30,23 @@ function rebuildRecapAbsenInOutMK() {
       });
       const msg = formatHistoricalRepairSummary_(report, 'Rekap ABSEN IN OUT MK berhasil digenerate ulang.');
       showSpreadsheetAlert_(msg);
+      appendRepairLog_('rebuildRecapAbsenInOutMK', { ok: true, msg: msg, report: report });
       return { ok: true, msg: msg, report: report };
     } catch(e) {
       const msg = 'Gagal generate ulang recap: ' + e.message;
       showSpreadsheetAlert_(msg);
+      appendRepairLog_('rebuildRecapAbsenInOutMK', { ok: false, msg: msg });
       return { ok: false, msg: msg };
     }
   });
+}
+
+function rebuildRecapAbsenInOutMK() {
+  showRepairProgressDialog_(
+    'rebuild_recap',
+    'Generate Ulang Recap Absen',
+    'Sistem akan membangun ulang recap dari log masuk dan keluar pabrik secara bertahap, lalu menutup binding yang sudah tidak aktif.'
+  );
 }
 
 // ── Binding Status ────────────────────────────────────────

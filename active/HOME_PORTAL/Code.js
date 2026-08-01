@@ -33,6 +33,22 @@ function onOpen() {
   }
 }
 
+function showRepairProgressDialog_(jobType, title, description) {
+  const template = HtmlService.createTemplateFromFile('RepairProgressDialog');
+  template.jobType = asText(jobType);
+  template.dialogTitle = asText(title);
+  template.dialogDescription = asText(description);
+
+  const html = template.evaluate()
+    .setWidth(540)
+    .setHeight(620);
+
+  SpreadsheetApp.getUi().showModelessDialog(
+    html,
+    asText(title) || 'Progress Perbaikan'
+  );
+}
+
 function openHomePortalLauncher() {
   const ui = SpreadsheetApp.getUi();
   const urls = getModuleUrls();

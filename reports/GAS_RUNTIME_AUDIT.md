@@ -3,9 +3,9 @@
 ## Summary
 
 - Scanned files: 163
-- GAS backend functions: 138
-- Frontend functions: 374
-- Frontend `google.script.run` calls: 57 unique 18
+- GAS backend functions: 158
+- Frontend functions: 388
+- Frontend `google.script.run` calls: 60 unique 21
 - Sheet constants: 25
 - Sheet dependencies: 69
 
@@ -28,7 +28,7 @@
 | `sheetName` | `active/HOME_PORTAL/DataRepairUtils.gs:180` | sheet dependency references a non-constant name |
 | `sheetName` | `active/HOME_PORTAL/DataRepairUtils.gs:256` | sheet dependency references a non-constant name |
 | `sheetName` | `active/HOME_PORTAL/DataRepairUtils.gs:331` | sheet dependency references a non-constant name |
-| `sheetName` | `active/HOME_PORTAL/GateFunctions.gs:193` | sheet dependency references a non-constant name |
+| `sheetName` | `active/HOME_PORTAL/GateFunctions.gs:203` | sheet dependency references a non-constant name |
 | `sheetName` | `active/MODUL_GATE_PABRIK/Code.js:116` | sheet dependency references a non-constant name |
 
 ## Active Runtime Mapping
@@ -47,10 +47,13 @@
 | `getModuleUrls` | `getModuleUrls` | `active/MODUL_AREA_KERJA/app.html:934`, `active/MODUL_GATE_PABRIK/app.html:1028` | sheet-backed | covered |
 | `getRecentAreaLogs` | `getRecentAreaLogs` | `active/HOME_PORTAL/app.html:1304`, `active/HOME_PORTAL/app.html:2153`, `active/MODUL_AREA_KERJA/app.html:862`, `active/MODUL_GATE_PABRIK/app.html:956`, `active/MODUL_REPORT/app.html:776` | sheet-backed | covered |
 | `getRecentFactoryGateLogs` | `getRecentFactoryGateLogs` | `active/HOME_PORTAL/app.html:1296` | sheet-backed | covered |
+| `getRepairProgressState` | `getRepairProgressState` | `active/HOME_PORTAL/RepairProgressDialog.html:343` | sheet-backed | covered |
 | `releaseKartu` | `releaseKartu` | `active/HOME_PORTAL/app.html:915`, `active/HOME_PORTAL/app.html:1028`, `active/MODUL_AREA_KERJA/app.html:766`, `active/MODUL_GATE_PABRIK/app.html:747`, `active/MODUL_GATE_PABRIK/app.html:860`, `active/MODUL_REPORT/app.html:680` | sheet-backed | covered |
+| `runRepairProgressStep` | `runRepairProgressStep` | `active/HOME_PORTAL/RepairProgressDialog.html:325` | sheet-backed | covered |
 | `saveJadwalShift` | `saveJadwalShift` | `active/HOME_PORTAL/app.html:2266` | sheet-backed | covered |
 | `scanAreaKerja` | `scanAreaKerja` | `active/HOME_PORTAL/app.html:813`, `active/MODUL_AREA_KERJA/app.html:588`, `active/MODUL_GATE_PABRIK/app.html:637`, `active/MODUL_REPORT/app.html:502` | sheet-backed | covered |
 | `searchKaryawan` | `searchKaryawan` | `active/HOME_PORTAL/app.html:623`, `active/HOME_PORTAL/app.html:2301`, `active/MODUL_AREA_KERJA/app.html:457`, `active/MODUL_AREA_KERJA/app.html:457`, `active/MODUL_GATE_PABRIK/app.html:447`, `active/MODUL_GATE_PABRIK/app.html:447`, `active/MODUL_REPORT/app.html:379`, `active/MODUL_REPORT/app.html:379` | sheet-backed | covered |
+| `startRepairProgressJob` | `startRepairProgressJob` | `active/HOME_PORTAL/RepairProgressDialog.html:291` | sheet-backed | covered |
 | `verifyLogin` | `verifyLogin` | `active/HOME_PORTAL/app.html:558`, `active/MODUL_AREA_KERJA/app.html:360`, `active/MODUL_GATE_PABRIK/app.html:352`, `active/MODUL_REPORT/app.html:295` | sheet-backed | covered |
 | `verifySession` | `verifySession` | `active/HOME_PORTAL/app.html:397`, `active/HOME_PORTAL/app.html:424`, `active/MODUL_AREA_KERJA/app.html:251`, `active/MODUL_GATE_PABRIK/app.html:241`, `active/MODUL_REPORT/app.html:186` | sheet-backed | covered |
 
