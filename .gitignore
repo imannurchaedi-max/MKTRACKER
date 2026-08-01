@@ -1,0 +1,14 @@
+node_modules/
+venv/
+_local/
+Junk/
+.claude/
+skills/
+graphify-out/
+
+EMPLOYEE DATA.xlsx
+~$EMPLOYEE DATA.xlsx
+
+*.pyc
+__pycache__/
+.DS_Store

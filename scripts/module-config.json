@@ -1,0 +1,24 @@
+{
+  "modules": [
+    {
+      "name": "HOME_PORTAL",
+      "dir": "active/HOME_PORTAL",
+      "deploymentId": "AKfycbw4I2Vxh_CKH2k1RHCtvqZwJ1fGwyb0LKeC4MPzEoVibhlSF0lSf5sYeuppZ3BBgp-x"
+    },
+    {
+      "name": "MODUL_GATE_PABRIK",
+      "dir": "active/MODUL_GATE_PABRIK",
+      "deploymentId": "AKfycbyjQ36Nlastyw1xBgzvojgX6QH2oPxB6462YKg0sELBb3gb08dYQuKHz5X_RLFntfoV9g"
+    },
+    {
+      "name": "MODUL_AREA_KERJA",
+      "dir": "active/MODUL_AREA_KERJA",
+      "deploymentId": "AKfycbyu6uW7XgdZPtJysgtf3x0i3E7cxR5Hrb_dZNKYns0QJ6Lef7xzbC0mT3uP_rREHz5ypA"
+    },
+    {
+      "name": "MODUL_REPORT",
+      "dir": "active/MODUL_REPORT",
+      "deploymentId": "AKfycbycdcUt4y9RdoQIOTnIzWs6AxyZe5JayFhbk6f9abnv5kr3VAWapXicdVvRGn3o53BS"
+    }
+  ]
+}

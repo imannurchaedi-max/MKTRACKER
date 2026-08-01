@@ -1,0 +1,229 @@
+{
+  "generatedAt": "2026-08-01",
+  "workbook": {
+    "sheetCount": 27,
+    "sheetNames": [
+      "Head",
+      "JADWAL_SHIFT",
+      "KARYAWAN",
+      "CONFIG_MODUL",
+      "Sheet4",
+      "BINDING_KARTU_MK",
+      "REGISTRASI SAAT MASUK PABRIK",
+      "STAFF AKTIF",
+      "NON STAFF",
+      "MITRA KERJA",
+      "STAFF NON AKTIF",
+      "REGISTRASI SAAT KELUAR PABRIK",
+      "ABSEN IN OUT MK",
+      "REGISTRASI MASUK KELUAR AREA KERJA",
+      "Sheet9",
+      "LOG",
+      "PROD",
+      "STAFF PROD DES 24",
+      "STAFF NONPROD DES 24",
+      "Prod Mesin 1",
+      "ENG",
+      "QC",
+      "HR GA",
+      "Sheet7",
+      "Pivot Table 3",
+      "Sheet5",
+      "Kak Meirin"
+    ],
+    "core": {
+      "karyawanCount": 872,
+      "masukRows": 2170,
+      "keluarRows": 2133,
+      "recapRows": 2338,
+      "areaRows": 1434,
+      "jadwalRows": 0
+    },
+    "recap": {
+      "statusCounts": {
+        "DI DALAM": 344,
+        "SELESAI": 1726,
+        "KELUAR TANPA MASUK": 268
+      },
+      "duplicateKeys": 0,
+      "monthCounts": {
+        "2026-01": 113,
+        "2026-02": 77,
+        "2026-03": 78,
+        "2026-04": 58,
+        "2026-05": 125,
+        "2026-06": 591,
+        "2026-07": 933,
+        "2026-08": 76,
+        "2026-09": 75,
+        "2026-10": 82,
+        "2026-11": 67,
+        "2026-12": 63
+      },
+      "futureRowsAfter_2026_08_01": 363
+    },
+    "binding": {
+      "statusCounts": {
+        "FREE": 2140,
+        "BOUND": 21
+      }
+    },
+    "areaSheetName": "REGISTRASI MASUK KELUAR AREA KERJA"
+  },
+  "runtime": {
+    "frontendGoogleScriptRunCalls": [
+      "bindKartu",
+      "exportAbsenReportCsv",
+      "getAbsenReport",
+      "getAreaActivityReport",
+      "getBindingStatus",
+      "getDashboardData",
+      "getKehadiranDashboard",
+      "getRecentAreaLogs",
+      "getRecentFactoryGateLogs",
+      "releaseKartu",
+      "scanAreaKerja",
+      "searchKaryawan",
+      "verifyLogin",
+      "verifySession"
+    ],
+    "criticalFlows": [
+      {
+        "name": "Masuk Pabrik",
+        "frontend": "confirmMasuk() -> google.script.run.bindKartu()",
+        "backend": [
+          "bindKartu()",
+          "getKaryawanByNIK()",
+          "getBindingStatus()",
+          "detectShift()",
+          "safeUpdateRecapAbsen()",
+          "rebuildHistoricalRecapDataset_()"
+        ],
+        "sheetsRead": [
+          "KARYAWAN",
+          "BINDING_KARTU_MK"
+        ],
+        "sheetsWrite": [
+          "REGISTRASI SAAT MASUK PABRIK",
+          "BINDING_KARTU_MK",
+          "ABSEN IN OUT MK"
+        ]
+      },
+      {
+        "name": "Keluar Pabrik",
+        "frontend": "confirmKeluar() -> google.script.run.releaseKartu()",
+        "backend": [
+          "releaseKartu()",
+          "getBindingStatus()",
+          "resolveFactoryWorkDate()",
+          "detectShift()",
+          "safeUpdateRecapAbsen()",
+          "rebuildHistoricalRecapDataset_()"
+        ],
+        "sheetsRead": [
+          "BINDING_KARTU_MK",
+          "KARYAWAN"
+        ],
+        "sheetsWrite": [
+          "REGISTRASI SAAT KELUAR PABRIK",
+          "BINDING_KARTU_MK",
+          "ABSEN IN OUT MK"
+        ]
+      },
+      {
+        "name": "Scan Area Kerja",
+        "frontend": "handleSecurityScan()/onSerialScanned() -> google.script.run.scanAreaKerja()",
+        "backend": [
+          "scanAreaKerja()",
+          "getBindingStatus()",
+          "getFactoryFlowStatusFromLogs_()"
+        ],
+        "sheetsRead": [
+          "BINDING_KARTU_MK",
+          "ABSEN IN OUT MK",
+          "KARYAWAN"
+        ],
+        "sheetsWrite": [
+          "REGISTRASI MASUK KELUAR AREA KERJA"
+        ]
+      },
+      {
+        "name": "Laporan Absen",
+        "frontend": "processAbsenReport() -> google.script.run.getAbsenReport()",
+        "backend": [
+          "getAbsenReport()",
+          "getAbsenReportFullData_()",
+          "buildPaginationMeta_()"
+        ],
+        "sheetsRead": [
+          "ABSEN IN OUT MK"
+        ],
+        "sheetsWrite": []
+      },
+      {
+        "name": "Laporan Area",
+        "frontend": "processAreaReport() -> google.script.run.getAreaActivityReport()",
+        "backend": [
+          "getAreaActivityReport()",
+          "getAreaActivityReportFullData_()",
+          "buildPaginationMeta_()"
+        ],
+        "sheetsRead": [
+          "REGISTRASI MASUK KELUAR AREA KERJA",
+          "KARYAWAN"
+        ],
+        "sheetsWrite": []
+      },
+      {
+        "name": "Perbaikan Spreadsheet",
+        "frontend": "Spreadsheet menu -> fixAllSpreadsheetErrors()",
+        "backend": [
+          "fixAllSpreadsheetErrors()",
+          "repairFactoryMasukLog_()",
+          "repairFactoryKeluarLog_()",
+          "rebuildHistoricalRecapDataset_()",
+          "buildFactoryRecapRowsFromEvents_()"
+        ],
+        "sheetsRead": [
+          "REGISTRASI SAAT MASUK PABRIK",
+          "REGISTRASI SAAT KELUAR PABRIK",
+          "KARYAWAN",
+          "ABSEN IN OUT MK",
+          "BINDING_KARTU_MK",
+          "JADWAL_SHIFT"
+        ],
+        "sheetsWrite": [
+          "ABSEN IN OUT MK",
+          "BINDING_KARTU_MK",
+          "REGISTRASI SAAT MASUK PABRIK",
+          "REGISTRASI SAAT KELUAR PABRIK"
+        ]
+      }
+    ],
+    "runtimeNotes": [
+      "Source of truth write-path ada di active/HOME_PORTAL/.",
+      "ABSEN IN OUT MK diperlakukan sebagai recap turunan, bukan log primer.",
+      "JADWAL_SHIFT saat ini kosong, jadi expected shift override belum aktif.",
+      "Pagination server-side di report aktif dengan DEFAULT_REPORT_PAGE_SIZE=25 dan MAX_REPORT_PAGE_SIZE=100."
+    ]
+  },
+  "graphify": {
+    "available": true,
+    "homePortalNodeCount": 17,
+    "homePortalFiles": [
+      "active/HOME_PORTAL/Code.js",
+      "active/HOME_PORTAL/Index.html",
+      "active/HOME_PORTAL/app.html",
+      "active/HOME_PORTAL/appsscript.json",
+      "active/HOME_PORTAL/style.html"
+    ],
+    "keySymbolsPresent": {
+      "bindKartu()": false,
+      "releaseKartu()": false,
+      "scanAreaKerja()": false,
+      "getAbsenReport()": false,
+      "getAreaActivityReport()": false,
+      "fixAllSpreadsheetErrors()": false
+    }
+  }
+}
