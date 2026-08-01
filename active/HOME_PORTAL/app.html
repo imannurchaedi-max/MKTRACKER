@@ -2716,12 +2716,14 @@ function renderReportPagination(kind, res) {
   const prevPage = Math.max(1, currentPage - 1);
   const nextPage = Math.min(res.totalPages || 1, currentPage + 1);
   const action = kind === 'area' ? 'change-area-page' : 'change-absen-page';
+  const pageButtons = renderPageNumberButtons(action, currentPage, res.totalPages || 1);
 
   return `
     <div class="report-pagination" style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin:16px 0 8px;flex-wrap:wrap;">
       <div style="font-size:13px;color:#5f7285;">Halaman ${currentPage} dari ${res.totalPages || 1}</div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:flex-end;">
         <button class="btn btn-outline" type="button" data-action="${action}" data-page="${prevPage}" ${res.hasPrev ? '' : 'disabled'}>Sebelumnya</button>
+        ${pageButtons}
         <button class="btn btn-primary" type="button" data-action="${action}" data-page="${nextPage}" ${res.hasNext ? '' : 'disabled'}>Berikutnya</button>
       </div>
     </div>
@@ -2732,15 +2734,55 @@ function renderLocalPagination(kind, page, totalPages, totalRows, startRow, endR
   if (!totalPages || totalPages <= 1) return '';
   const prevPage = Math.max(1, page - 1);
   const nextPage = Math.min(totalPages, page + 1);
+  const action = `change-${kind}-page`;
+  const pageButtons = renderPageNumberButtons(action, page, totalPages);
   return `
     <div class="report-pagination" style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin:16px 0 8px;flex-wrap:wrap;">
       <div style="font-size:13px;color:#5f7285;">Menampilkan baris ${startRow}-${endRow} dari ${totalRows} catatan. Halaman ${page} dari ${totalPages}</div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;">
-        <button class="btn btn-outline" type="button" data-action="change-${kind}-page" data-page="${prevPage}" ${page > 1 ? '' : 'disabled'}>Sebelumnya</button>
-        <button class="btn btn-primary" type="button" data-action="change-${kind}-page" data-page="${nextPage}" ${page < totalPages ? '' : 'disabled'}>Berikutnya</button>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:flex-end;">
+        <button class="btn btn-outline" type="button" data-action="${action}" data-page="${prevPage}" ${page > 1 ? '' : 'disabled'}>Sebelumnya</button>
+        ${pageButtons}
+        <button class="btn btn-primary" type="button" data-action="${action}" data-page="${nextPage}" ${page < totalPages ? '' : 'disabled'}>Berikutnya</button>
       </div>
     </div>
   `;
+}
+
+function renderPageNumberButtons(action, currentPage, totalPages) {
+  const safeCurrent = Math.max(1, parseInt(currentPage, 10) || 1);
+  const safeTotal = Math.max(1, parseInt(totalPages, 10) || 1);
+  if (safeTotal <= 1) return '';
+
+  const pages = [];
+  const start = Math.max(1, safeCurrent - 2);
+  const end = Math.min(safeTotal, safeCurrent + 2);
+
+  pages.push(1);
+  for (let page = start; page <= end; page++) {
+    pages.push(page);
+  }
+  pages.push(safeTotal);
+
+  const uniquePages = Array.from(new Set(pages)).sort(function(a, b) {
+    return a - b;
+  });
+
+  const parts = [];
+  let previous = 0;
+
+  uniquePages.forEach(function(page) {
+    if (previous && page - previous > 1) {
+      parts.push('<span style="padding:0 2px;color:#7a8b99;font-size:13px;">...</span>');
+    }
+
+    const isActive = page === safeCurrent;
+    parts.push(
+      `<button class="btn ${isActive ? 'btn-primary' : 'btn-outline'}" type="button" data-action="${action}" data-page="${page}" ${isActive ? 'disabled' : ''} style="min-width:42px;padding:10px 12px;">${page}</button>`
+    );
+    previous = page;
+  });
+
+  return parts.join('');
 }
 
 function showResult(context, type, html) {
