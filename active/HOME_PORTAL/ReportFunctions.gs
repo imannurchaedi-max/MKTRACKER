@@ -7,7 +7,7 @@
 
 // ── Date Key Helpers ──────────────────────────────────────
 function toDateKey(value) {
-  const parsed = parseSheetDate(value);
+  const parsed = parseSheetDate(value, getFactoryOperationalDateParsingOptions_());
   if (parsed) {
     return Utilities.formatDate(parsed, 'Asia/Jakarta', 'yyyyMMdd');
   }
@@ -18,7 +18,7 @@ const DEFAULT_REPORT_PAGE_SIZE = 25;
 const MAX_REPORT_PAGE_SIZE = 100;
 
 function formatSheetDateValue(value) {
-  const parsed = parseSheetDate(value);
+  const parsed = parseSheetDate(value, getFactoryOperationalDateParsingOptions_());
   return parsed ? formatDate(parsed) : asText(value);
 }
 
@@ -35,7 +35,7 @@ function formatSheetTimeValue(value) {
 function formatDisplayedDateValue(rawValue, displayedValue) {
   const text = asText(displayedValue).trim();
   if (text) {
-    const parsed = parseSheetDate(text);
+    const parsed = parseSheetDate(text, getFactoryOperationalDateParsingOptions_());
     if (parsed) return formatDate(parsed);
   }
   return formatSheetDateValue(rawValue);

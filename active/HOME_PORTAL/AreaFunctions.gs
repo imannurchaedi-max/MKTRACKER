@@ -539,7 +539,7 @@ function getKehadiranDashboard(tanggal, shiftFilter, deptFilter, typeFilter) {
     const now    = nowWIB();
     let targetDate;
     if (tanggal) {
-      targetDate = parseIsoDate(tanggal) || parseSheetDate(tanggal) || new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      targetDate = parseIsoDate(tanggal) || parseSheetDate(tanggal, getFactoryOperationalDateParsingOptions_()) || new Date(now.getFullYear(), now.getMonth(), now.getDate());
     } else {
       targetDate = new Date(now.getFullYear(), now.getMonth(), now.getDate());
     }

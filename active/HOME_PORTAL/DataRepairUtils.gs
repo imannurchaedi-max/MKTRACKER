@@ -48,8 +48,8 @@ function appendRepairLog_(actionName, payload) {
   }
 }
 
-function normalizeSheetDateValue_(value) {
-  const parsed = parseSheetDate(value);
+function normalizeSheetDateValue_(value, parseOptions) {
+  const parsed = parseSheetDate(value, parseOptions);
   if (parsed) return formatDate(parsed);
   return asText(value).trim();
 }
@@ -73,9 +73,10 @@ function uniqueTextList_(values) {
 }
 
 function sortFactoryRecapRows_(rows) {
+  const parseOptions = getFactoryOperationalDateParsingOptions_();
   return (rows || []).slice().sort(function(a, b) {
-    const dateA = parseSheetDate(a[0]);
-    const dateB = parseSheetDate(b[0]);
+    const dateA = parseSheetDate(a[0], parseOptions);
+    const dateB = parseSheetDate(b[0], parseOptions);
     const timeA = dateA ? dateA.getTime() : 0;
     const timeB = dateB ? dateB.getTime() : 0;
     if (timeA !== timeB) return timeA - timeB;
@@ -150,11 +151,11 @@ function sanitizeSheetNikColumn_(sheetName, nikColIndex) {
   return cleanedCount;
 }
 
-function normalizeTemporalCellValue_(rawValue, mode) {
+function normalizeTemporalCellValue_(rawValue, mode, parseOptions) {
   if (mode === 'datetime') {
-    return makeSheetDateTimeValue(rawValue);
+    return makeSheetDateTimeValue(rawValue, undefined, parseOptions);
   }
-  return makeSheetDateValue(rawValue);
+  return makeSheetDateValue(rawValue, parseOptions);
 }
 
 function temporalCellMatchesMode_(rawValue, normalizedValue, mode) {
@@ -176,7 +177,7 @@ function temporalCellMatchesMode_(rawValue, normalizedValue, mode) {
   );
 }
 
-function normalizeTemporalColumn_(sheetName, columnIndex, mode, numberFormat) {
+function normalizeTemporalColumn_(sheetName, columnIndex, mode, numberFormat, parseOptions) {
   const sheet = getSheet(sheetName);
   const lastRow = sheet.getLastRow();
   if (lastRow <= 1) return { normalizedCount: 0, sampleRows: [] };
@@ -191,7 +192,7 @@ function normalizeTemporalColumn_(sheetName, columnIndex, mode, numberFormat) {
     const rawValue = values[i][0];
     if (rawValue === '' || rawValue === null || rawValue === undefined) continue;
 
-    const normalizedValue = normalizeTemporalCellValue_(rawValue, mode);
+    const normalizedValue = normalizeTemporalCellValue_(rawValue, mode, parseOptions);
     if (!normalizedValue) continue;
     if (temporalCellMatchesMode_(rawValue, normalizedValue, mode)) continue;
 
@@ -222,15 +223,20 @@ function normalizeTemporalColumn_(sheetName, columnIndex, mode, numberFormat) {
 }
 
 function normalizeFactoryTemporalColumns_() {
+  const operationalParseOptions = getFactoryOperationalDateParsingOptions_();
+  const flexibleDateOptions = normalizeDateParseOptions_({
+    preferredSlashOrder: 'DMY',
+    allowMonthFirstFallback: true
+  });
   const result = {
-    masukDates: normalizeTemporalColumn_(SHEET_MASUK_PABRIK, 4, 'date', 'dd/MM/yyyy'),
-    keluarDates: normalizeTemporalColumn_(SHEET_KELUAR_PABRIK, 4, 'date', 'dd/MM/yyyy'),
-    areaDates: normalizeTemporalColumn_(SHEET_AREA_KERJA, 3, 'date', 'dd/MM/yyyy'),
-    recapDates: normalizeTemporalColumn_(SHEET_RECAP_ABSEN, 1, 'date', 'dd/MM/yyyy'),
-    bindingBind: normalizeTemporalColumn_(SHEET_BINDING, 6, 'datetime', 'dd/MM/yyyy HH:mm:ss'),
-    bindingRelease: normalizeTemporalColumn_(SHEET_BINDING, 8, 'datetime', 'dd/MM/yyyy HH:mm:ss'),
-    jadwalMulai: normalizeTemporalColumn_(SHEET_JADWAL, 5, 'date', 'dd/MM/yyyy'),
-    jadwalSelesai: normalizeTemporalColumn_(SHEET_JADWAL, 6, 'date', 'dd/MM/yyyy')
+    masukDates: normalizeTemporalColumn_(SHEET_MASUK_PABRIK, 4, 'date', 'dd/MM/yyyy', operationalParseOptions),
+    keluarDates: normalizeTemporalColumn_(SHEET_KELUAR_PABRIK, 4, 'date', 'dd/MM/yyyy', operationalParseOptions),
+    areaDates: normalizeTemporalColumn_(SHEET_AREA_KERJA, 3, 'date', 'dd/MM/yyyy', operationalParseOptions),
+    recapDates: normalizeTemporalColumn_(SHEET_RECAP_ABSEN, 1, 'date', 'dd/MM/yyyy', operationalParseOptions),
+    bindingBind: normalizeTemporalColumn_(SHEET_BINDING, 6, 'datetime', 'dd/MM/yyyy HH:mm:ss', operationalParseOptions),
+    bindingRelease: normalizeTemporalColumn_(SHEET_BINDING, 8, 'datetime', 'dd/MM/yyyy HH:mm:ss', operationalParseOptions),
+    jadwalMulai: normalizeTemporalColumn_(SHEET_JADWAL, 5, 'date', 'dd/MM/yyyy', flexibleDateOptions),
+    jadwalSelesai: normalizeTemporalColumn_(SHEET_JADWAL, 6, 'date', 'dd/MM/yyyy', flexibleDateOptions)
   };
 
   result.totalNormalized =
@@ -247,7 +253,7 @@ function normalizeFactoryTemporalColumns_() {
 }
 
 function buildFactoryAffectedDates_(tanggal, nik, timeValue, eventType) {
-  const baseDate = normalizeSheetDateValue_(tanggal);
+  const baseDate = normalizeSheetDateValue_(tanggal, getFactoryOperationalDateParsingOptions_());
   const context = resolveFactoryWorkDate(baseDate, timeValue, eventType);
   return uniqueTextList_([baseDate, context && context.tanggal]);
 }
@@ -266,6 +272,7 @@ function repairFactoryShiftColumn_(sheetName, eventType, shiftColIndex) {
   let cleanedNikCount = 0;
   let changed = false;
   const sampleFixes = [];
+  const parseOptions = getFactoryOperationalDateParsingOptions_();
 
   for (let i = 0; i < data.length; i++) {
     const row = data[i];
@@ -279,11 +286,11 @@ function repairFactoryShiftColumn_(sheetName, eventType, shiftColIndex) {
       changed = true;
     }
 
-    const tanggal = normalizeSheetDateValue_(displayRow[3]) || normalizeSheetDateValue_(row[3]);
+    const tanggal = normalizeSheetDateValue_(row[3], parseOptions) || normalizeSheetDateValue_(displayRow[3], parseOptions);
     const jamStr = normalizeDisplayedTimeValue_(row[4], displayRow[4]);
     if (!tanggal || !jamStr) continue;
 
-    const normalizedDateValue = makeSheetDateValue(row[3] || displayRow[3]);
+    const normalizedDateValue = makeSheetDateValue(row[3] || displayRow[3], parseOptions);
     if (normalizedDateValue && !temporalCellMatchesMode_(row[3], normalizedDateValue, 'date')) {
       row[3] = normalizedDateValue;
       changed = true;
@@ -342,6 +349,7 @@ function collectFactoryLogEvents_(sheetName, eventType, options) {
   let cleanedNikCount = 0;
   let changed = false;
   const sampleFixes = [];
+  const parseOptions = getFactoryOperationalDateParsingOptions_();
 
   const karyawanMap = config.karyawanMap || getKaryawanMapByNIK();
 
@@ -350,8 +358,8 @@ function collectFactoryLogEvents_(sheetName, eventType, options) {
     const displayRow = displayData[i] || [];
     const rawNik = asText(row[1]).trim();
     const nik = rawNik.replace(/\.0$/, '');
-    const tanggal = normalizeSheetDateValue_(displayRow[3]) || normalizeSheetDateValue_(row[3]);
-    const parsedDate = parseSheetDate(row[3]);
+    const tanggal = normalizeSheetDateValue_(row[3], parseOptions) || normalizeSheetDateValue_(displayRow[3], parseOptions);
+    const parsedDate = parseSheetDate(row[3], parseOptions) || parseSheetDate(displayRow[3], parseOptions);
     const jamStr = normalizeDisplayedTimeValue_(row[4], displayRow[4]);
 
     if (repairSheet && nik && nik !== rawNik) {
@@ -514,12 +522,12 @@ function rewriteFactoryRecapSheet_(rows, options) {
 
     const keptRows = existingRows.filter(function(row) {
       const rowNik = asText(row[1]).trim();
-      const rowDate = normalizeSheetDateValue_(row[0]);
+      const rowDate = normalizeSheetDateValue_(row[0], getFactoryOperationalDateParsingOptions_());
       return !(rowNik === targetNik && affectedMap[rowDate]);
     });
 
     const replacementRows = rows.filter(function(row) {
-      return affectedMap[normalizeSheetDateValue_(row[0])];
+      return affectedMap[normalizeSheetDateValue_(row[0], getFactoryOperationalDateParsingOptions_())];
     });
 
     finalRows = sortFactoryRecapRows_(keptRows.concat(replacementRows));
@@ -579,13 +587,13 @@ function refreshFactoryRecapForNik_(nik, affectedDates) {
 
 function getFactoryFlowStatusFromLogs_(nik, tanggal) {
   const targetNik = asText(nik).trim().replace(/\.0$/, '');
-  const targetDate = normalizeSheetDateValue_(tanggal);
+  const targetDate = normalizeSheetDateValue_(tanggal, getFactoryOperationalDateParsingOptions_());
   if (!targetNik || !targetDate) return '';
 
   const recapBuild = buildFactoryRecapRowsForNik_(targetNik);
   for (let i = 0; i < recapBuild.rows.length; i++) {
     const row = recapBuild.rows[i];
-    if (asText(row[1]).trim() === targetNik && normalizeSheetDateValue_(row[0]) === targetDate) {
+    if (asText(row[1]).trim() === targetNik && normalizeSheetDateValue_(row[0], getFactoryOperationalDateParsingOptions_()) === targetDate) {
       return asText(row[7]).trim();
     }
   }

@@ -31,6 +31,10 @@ const OPTIONAL_SHEET_HEADERS = {
   [SHEET_KELUAR_PABRIK]: ['NO LOKER']
 };
 
+const CANONICAL_FACTORY_DATE_FORMAT = 'dd/MM/yyyy';
+const FACTORY_OPERATION_START_DATE = new Date(2026, 4, 15);
+const FACTORY_OPERATION_MAX_FUTURE_DAYS = 2;
+
 // ---- TEXT UTILITIES ----
 
 function asText(value) {
@@ -197,44 +201,149 @@ function formatDateTime(d) {
   }
 }
 
-function parseSheetDateTime(value) {
+function createStrictDateTime_(year, monthIndex, day, hour, minute, second) {
+  const dateValue = new Date(year, monthIndex, day, hour || 0, minute || 0, second || 0, 0);
+  if (
+    isNaN(dateValue.getTime()) ||
+    dateValue.getFullYear() !== year ||
+    dateValue.getMonth() !== monthIndex ||
+    dateValue.getDate() !== day ||
+    dateValue.getHours() !== (hour || 0) ||
+    dateValue.getMinutes() !== (minute || 0) ||
+    dateValue.getSeconds() !== (second || 0)
+  ) {
+    return null;
+  }
+  return dateValue;
+}
+
+function cloneDateOnly_(value) {
+  if (!(value instanceof Date) || isNaN(value.getTime())) return null;
+  return new Date(value.getFullYear(), value.getMonth(), value.getDate());
+}
+
+function normalizeDateParseOptions_(options) {
+  const config = options || {};
+  return {
+    preferredSlashOrder: asText(config.preferredSlashOrder).trim().toUpperCase() === 'MDY' ? 'MDY' : 'DMY',
+    allowMonthFirstFallback: config.allowMonthFirstFallback === true,
+    requireWindowMatch: config.requireWindowMatch === true,
+    minDate: cloneDateOnly_(config.minDate),
+    maxDate: cloneDateOnly_(config.maxDate),
+    referenceDate: cloneDateOnly_(config.referenceDate)
+  };
+}
+
+function getFactoryOperationalDateParsingOptions_(overrides) {
+  const maxDate = cloneDateOnly_(nowWIB()) || new Date();
+  maxDate.setDate(maxDate.getDate() + FACTORY_OPERATION_MAX_FUTURE_DAYS);
+  return normalizeDateParseOptions_(Object.assign({
+    preferredSlashOrder: 'DMY',
+    allowMonthFirstFallback: true,
+    requireWindowMatch: true,
+    minDate: FACTORY_OPERATION_START_DATE,
+    maxDate: maxDate
+  }, overrides || {}));
+}
+
+function isDateWithinParseWindow_(dateValue, options) {
+  if (!(dateValue instanceof Date) || isNaN(dateValue.getTime())) return false;
+  const config = normalizeDateParseOptions_(options);
+  const dateOnly = cloneDateOnly_(dateValue);
+  if (config.minDate && dateOnly.getTime() < config.minDate.getTime()) return false;
+  if (config.maxDate && dateOnly.getTime() > config.maxDate.getTime()) return false;
+  return true;
+}
+
+function applyParseWindowToDate_(dateValue, options) {
+  if (!(dateValue instanceof Date) || isNaN(dateValue.getTime())) return null;
+  const config = normalizeDateParseOptions_(options);
+  if (!config.requireWindowMatch) return new Date(dateValue.getTime());
+  return isDateWithinParseWindow_(dateValue, config) ? new Date(dateValue.getTime()) : null;
+}
+
+function chooseSlashDateCandidate_(preferredCandidate, alternateCandidate, options) {
+  const config = normalizeDateParseOptions_(options);
+  const preferred = preferredCandidate instanceof Date && !isNaN(preferredCandidate.getTime()) ? preferredCandidate : null;
+  const alternate = alternateCandidate instanceof Date && !isNaN(alternateCandidate.getTime()) ? alternateCandidate : null;
+
+  if (!preferred && !alternate) return null;
+  if (!alternate) return applyParseWindowToDate_(preferred, config);
+  if (!preferred) {
+    if (!config.allowMonthFirstFallback) return null;
+    return applyParseWindowToDate_(alternate, config);
+  }
+
+  const preferredWindowed = applyParseWindowToDate_(preferred, config);
+  const alternateWindowed = applyParseWindowToDate_(alternate, config);
+  if (preferredWindowed && !alternateWindowed) return preferredWindowed;
+  if (!preferredWindowed && alternateWindowed) return alternateWindowed;
+  if (preferredWindowed && alternateWindowed && config.referenceDate) {
+    const refTime = config.referenceDate.getTime();
+    const preferredDistance = Math.abs(cloneDateOnly_(preferredWindowed).getTime() - refTime);
+    const alternateDistance = Math.abs(cloneDateOnly_(alternateWindowed).getTime() - refTime);
+    return preferredDistance <= alternateDistance ? preferredWindowed : alternateWindowed;
+  }
+  if (preferredWindowed && alternateWindowed) return preferredWindowed;
+  if (config.requireWindowMatch) return null;
+  return preferred;
+}
+
+function parseLocalizedDateTime_(text, options) {
+  const config = normalizeDateParseOptions_(options);
+  const match = asText(text).trim().match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})(?:\s+(\d{1,2}):(\d{2})(?::(\d{2}))?)?$/);
+  if (!match) return null;
+
+  const first = parseInt(match[1], 10);
+  const second = parseInt(match[2], 10);
+  const year = parseInt(match[3], 10);
+  const hour = parseInt(match[4] || '0', 10);
+  const minute = parseInt(match[5] || '0', 10);
+  const secondValue = parseInt(match[6] || '0', 10);
+
+  const dmyCandidate = createStrictDateTime_(year, second - 1, first, hour, minute, secondValue);
+  const mdyCandidate = createStrictDateTime_(year, first - 1, second, hour, minute, secondValue);
+
+  if (config.preferredSlashOrder === 'MDY') {
+    return chooseSlashDateCandidate_(mdyCandidate, dmyCandidate, config);
+  }
+  return chooseSlashDateCandidate_(dmyCandidate, mdyCandidate, config);
+}
+
+function parseSheetDateTime(value, options) {
   try {
     if (Object.prototype.toString.call(value) === '[object Date]' && !isNaN(value.getTime())) {
-      return new Date(value.getTime());
+      return applyParseWindowToDate_(value, options);
     }
 
     const text = asText(value).trim();
     if (!text) return null;
 
-    let match = text.match(/^(\d{2})\/(\d{2})\/(\d{4})(?:\s+(\d{1,2}):(\d{2})(?::(\d{2}))?)?$/);
-    if (match) {
-      const d = new Date(
-        parseInt(match[3], 10),
-        parseInt(match[2], 10) - 1,
-        parseInt(match[1], 10),
-        parseInt(match[4] || '0', 10),
-        parseInt(match[5] || '0', 10),
-        parseInt(match[6] || '0', 10)
-      );
-      return isNaN(d.getTime()) ? null : d;
-    }
+    const localizedParsed = parseLocalizedDateTime_(text, options);
+    if (localizedParsed) return localizedParsed;
 
-    match = text.match(/^(\d{4})-(\d{2})-(\d{2})(?:\s+(\d{1,2}):(\d{2})(?::(\d{2}))?)?$/);
+    let match = text.match(/^(\d{4})-(\d{2})-(\d{2})(?:[T\s]+(\d{1,2}):(\d{2})(?::(\d{2}))?)?$/);
     if (match) {
-      const d = new Date(
+      return applyParseWindowToDate_(createStrictDateTime_(
         parseInt(match[1], 10),
         parseInt(match[2], 10) - 1,
         parseInt(match[3], 10),
         parseInt(match[4] || '0', 10),
         parseInt(match[5] || '0', 10),
         parseInt(match[6] || '0', 10)
-      );
-      return isNaN(d.getTime()) ? null : d;
+      ), options);
     }
 
-    const nativeParsed = new Date(text);
-    if (!isNaN(nativeParsed.getTime())) {
-      return nativeParsed;
+    match = text.match(/^(\d{1,2})-(\d{1,2})-(\d{4})(?:\s+(\d{1,2}):(\d{2})(?::(\d{2}))?)?$/);
+    if (match) {
+      return applyParseWindowToDate_(createStrictDateTime_(
+        parseInt(match[3], 10),
+        parseInt(match[2], 10) - 1,
+        parseInt(match[1], 10),
+        parseInt(match[4] || '0', 10),
+        parseInt(match[5] || '0', 10),
+        parseInt(match[6] || '0', 10)
+      ), options);
     }
 
     return null;
@@ -244,9 +353,9 @@ function parseSheetDateTime(value) {
   }
 }
 
-function makeSheetDateValue(value) {
+function makeSheetDateValue(value, options) {
   try {
-    const parsed = parseSheetDate(value);
+    const parsed = parseSheetDate(value, options);
     if (!parsed) return '';
     return new Date(parsed.getFullYear(), parsed.getMonth(), parsed.getDate());
   } catch(e) {
@@ -255,14 +364,14 @@ function makeSheetDateValue(value) {
   }
 }
 
-function makeSheetDateTimeValue(dateValue, timeValue) {
+function makeSheetDateTimeValue(dateValue, timeValue, options) {
   try {
     if (timeValue === undefined) {
-      const directParsed = parseSheetDateTime(dateValue);
+      const directParsed = parseSheetDateTime(dateValue, options);
       return directParsed || '';
     }
 
-    const baseDate = parseSheetDate(dateValue);
+    const baseDate = parseSheetDate(dateValue, options);
     if (!baseDate) return '';
 
     const normalizedTime = normalizeTimeValue(timeValue);
@@ -317,31 +426,15 @@ function parseIsoDate(value) {
   }
 }
 
-function parseSheetDate(value) {
+function parseSheetDate(value, options) {
   try {
     if (Object.prototype.toString.call(value) === '[object Date]' && !isNaN(value.getTime())) {
-      return new Date(value.getFullYear(), value.getMonth(), value.getDate());
+      return cloneDateOnly_(applyParseWindowToDate_(value, options));
     }
 
     const text = asText(value).trim();
-    let parts = text.split('/');
-    if (parts.length === 3) {
-      const d = new Date(parseInt(parts[2], 10), parseInt(parts[1], 10) - 1, parseInt(parts[0], 10));
-      return isNaN(d.getTime()) ? null : d;
-    }
-
-    parts = text.split('-');
-    if (parts.length === 3) {
-      const d = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
-      return isNaN(d.getTime()) ? null : d;
-    }
-
-    const parsedDateTime = parseSheetDateTime(text);
-    if (parsedDateTime) {
-      return new Date(parsedDateTime.getFullYear(), parsedDateTime.getMonth(), parsedDateTime.getDate());
-    }
-
-    return null;
+    const parsedDateTime = parseSheetDateTime(text, options);
+    return cloneDateOnly_(parsedDateTime);
   } catch(e) {
     Logger.log('SharedLib.parseSheetDate: failed — ' + e.message);
     return null;
@@ -350,7 +443,7 @@ function parseSheetDate(value) {
 
 function formatDateForSort(value) {
   try {
-    const d = parseSheetDate(value);
+    const d = parseSheetDate(value, getFactoryOperationalDateParsingOptions_());
     return d ? Utilities.formatDate(d, 'Asia/Jakarta', 'yyyyMMdd') : asText(value);
   } catch(e) {
     Logger.log('SharedLib.formatDateForSort: failed — ' + e.message);
@@ -399,7 +492,7 @@ function getPeriodRange(periodType, periodValue) {
 
 function isDateInRange(value, range) {
   try {
-    const date = parseSheetDate(value);
+    const date = parseSheetDate(value, getFactoryOperationalDateParsingOptions_());
     if (!date) return false;
     return date.getTime() >= range.start.getTime() && date.getTime() <= range.end.getTime();
   } catch(e) {
@@ -625,7 +718,8 @@ function inferShiftByEventTime(timeValue, eventType) {
 
 function resolveFactoryWorkDate(tanggal, timeValue, eventType) {
   try {
-    const baseDate = parseIsoDate(tanggal) || parseSheetDate(tanggal);
+    const parseOptions = getFactoryOperationalDateParsingOptions_();
+    const baseDate = parseIsoDate(tanggal) || parseSheetDate(tanggal, parseOptions);
     const normalizedDate = baseDate ? formatDate(baseDate) : asText(tanggal).trim();
     const shiftLabel = detectShift(timeValue, eventType);
     const minute = timeStrToMinutes(timeValue);
@@ -676,7 +770,8 @@ function getExpectedShiftForNikOnDate(nik, tanggal) {
 
 function resolveRecapShiftContext(tanggal, nik, timeValue, eventType) {
   try {
-    const baseDate = parseIsoDate(tanggal) || parseSheetDate(tanggal);
+    const parseOptions = getFactoryOperationalDateParsingOptions_();
+    const baseDate = parseIsoDate(tanggal) || parseSheetDate(tanggal, parseOptions);
     if (!baseDate) {
       return { tanggal: asText(tanggal).trim(), shiftLabel: inferShiftByEventTime(timeValue, eventType), source: 'raw' };
     }
@@ -903,7 +998,7 @@ function getRecapStatus(jamMasuk, jamKeluar) {
 }
 
 function makeRecapKey(tanggal, nik) {
-  const parsedDate = parseSheetDate(tanggal);
+  const parsedDate = parseSheetDate(tanggal, getFactoryOperationalDateParsingOptions_());
   const normDate = parsedDate ? formatDate(parsedDate) : asText(tanggal).trim();
   const normNik = asText(nik).trim().replace(/\.0$/, '');
   return normDate + '|' + normNik;
