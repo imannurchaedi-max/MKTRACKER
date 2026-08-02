@@ -450,6 +450,7 @@ function collectFactoryLogEvents_(sheetName, eventType, options) {
     const master = karyawanMap[nik] || {};
     const workContext = resolveFactoryWorkDate(tanggal, jamStr, eventType);
     const recapDate = asText(workContext.tanggal).trim() || tanggal;
+    const recapDateValue = workContext.tanggalValue || resolvedDate.normalizedValue || makeSheetDateValue(recapDate, parseOptions);
     events.push({
       nik: nik,
       nama: asText(row[2]) || asText(master.nama),
@@ -459,7 +460,9 @@ function collectFactoryLogEvents_(sheetName, eventType, options) {
       loker: asText(row[6] || ''),
       jamStr: jamStr,
       eventDate: tanggal,
+      eventDateValue: resolvedDate.normalizedValue || makeSheetDateValue(tanggal, parseOptions),
       recapDate: recapDate,
+      recapDateValue: recapDateValue,
       shift: asText(workContext.shiftLabel).trim() || detectShift(jamStr, eventType),
       timeMs: parsedDate.getTime() + (timeStrToMinutes(jamStr) || 0) * 60000,
       used: false
@@ -495,6 +498,7 @@ function buildFactoryRecapRowsFromEvents_(masukEvents, keluarEvents) {
     if (!grouped[key]) {
       grouped[key] = {
         tanggal: event.recapDate,
+        tanggalValue: event.recapDateValue || makeSheetDateValue(event.recapDate, getFactoryOperationalDateParsingOptions_()),
         nik: event.nik,
         nama: event.nama,
         dept: event.dept,
@@ -507,6 +511,7 @@ function buildFactoryRecapRowsFromEvents_(masukEvents, keluarEvents) {
     if (!group.nama && event.nama) group.nama = event.nama;
     if (!group.dept && event.dept) group.dept = event.dept;
     if (!group.jabatan && event.jabatan) group.jabatan = event.jabatan;
+    if (!group.tanggalValue && event.recapDateValue) group.tanggalValue = event.recapDateValue;
     return group;
   }
 
@@ -533,7 +538,7 @@ function buildFactoryRecapRowsFromEvents_(masukEvents, keluarEvents) {
     const status = getRecapStatus(jamMasuk, jamKeluar);
 
     rows.push([
-      makeSheetDateValue(group.tanggal),
+      group.tanggalValue || makeSheetDateValue(group.tanggal, getFactoryOperationalDateParsingOptions_()),
       group.nik,
       group.nama,
       group.dept,

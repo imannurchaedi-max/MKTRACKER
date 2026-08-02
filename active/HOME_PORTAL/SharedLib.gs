@@ -726,7 +726,7 @@ function resolveFactoryWorkDate(tanggal, timeValue, eventType) {
     const shiftDef = getShiftDefinition_(shiftLabel);
 
     if (!baseDate) {
-      return { tanggal: normalizedDate, shiftLabel: shiftLabel, source: 'raw' };
+      return { tanggal: normalizedDate, tanggalValue: null, shiftLabel: shiftLabel, source: 'raw' };
     }
 
     if (shiftLabel === 'Shift 3' && shiftDef && minute !== null && minute < shiftDef.startTotal) {
@@ -734,16 +734,23 @@ function resolveFactoryWorkDate(tanggal, timeValue, eventType) {
       previousDate.setDate(previousDate.getDate() - 1);
       return {
         tanggal: formatDate(previousDate),
+        tanggalValue: new Date(previousDate.getFullYear(), previousDate.getMonth(), previousDate.getDate()),
         shiftLabel: shiftLabel,
         source: 'shift3_prev_day'
       };
     }
 
-    return { tanggal: normalizedDate, shiftLabel: shiftLabel, source: 'same_day' };
+    return {
+      tanggal: normalizedDate,
+      tanggalValue: new Date(baseDate.getFullYear(), baseDate.getMonth(), baseDate.getDate()),
+      shiftLabel: shiftLabel,
+      source: 'same_day'
+    };
   } catch (e) {
     Logger.log('SharedLib.resolveFactoryWorkDate: failed - ' + e.message);
     return {
       tanggal: asText(tanggal).trim(),
+      tanggalValue: null,
       shiftLabel: detectShift(timeValue, eventType),
       source: 'error'
     };
@@ -773,7 +780,7 @@ function resolveRecapShiftContext(tanggal, nik, timeValue, eventType) {
     const parseOptions = getFactoryOperationalDateParsingOptions_();
     const baseDate = parseIsoDate(tanggal) || parseSheetDate(tanggal, parseOptions);
     if (!baseDate) {
-      return { tanggal: asText(tanggal).trim(), shiftLabel: inferShiftByEventTime(timeValue, eventType), source: 'raw' };
+      return { tanggal: asText(tanggal).trim(), tanggalValue: null, shiftLabel: inferShiftByEventTime(timeValue, eventType), source: 'raw' };
     }
 
     const currentDate = new Date(baseDate.getFullYear(), baseDate.getMonth(), baseDate.getDate());
@@ -789,24 +796,24 @@ function resolveRecapShiftContext(tanggal, nik, timeValue, eventType) {
 
     if (eventType === 'keluar') {
       if (expectedPrev === 'Shift 3' && matchesShiftEventTime('Shift 3', timeValue, 'keluar')) {
-        return { tanggal: previousLabel, shiftLabel: 'Shift 3', source: 'jadwal_prev' };
+        return { tanggal: previousLabel, tanggalValue: new Date(previousDate.getFullYear(), previousDate.getMonth(), previousDate.getDate()), shiftLabel: 'Shift 3', source: 'jadwal_prev' };
       }
       if (expectedToday && matchesShiftEventTime(expectedToday, timeValue, 'keluar')) {
-        return { tanggal: currentLabel, shiftLabel: expectedToday, source: 'jadwal_today' };
+        return { tanggal: currentLabel, tanggalValue: new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate()), shiftLabel: expectedToday, source: 'jadwal_today' };
       }
       if (inferredShift === 'Shift 3' && minute !== null && minute <= (7 * 60)) {
-        return { tanggal: previousLabel, shiftLabel: 'Shift 3', source: 'infer_prev' };
+        return { tanggal: previousLabel, tanggalValue: new Date(previousDate.getFullYear(), previousDate.getMonth(), previousDate.getDate()), shiftLabel: 'Shift 3', source: 'infer_prev' };
       }
-      return { tanggal: currentLabel, shiftLabel: expectedToday || inferredShift || '', source: 'default_keluar' };
+      return { tanggal: currentLabel, tanggalValue: new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate()), shiftLabel: expectedToday || inferredShift || '', source: 'default_keluar' };
     }
 
     if (expectedToday && matchesShiftEventTime(expectedToday, timeValue, 'masuk')) {
-      return { tanggal: currentLabel, shiftLabel: expectedToday, source: 'jadwal_today' };
+      return { tanggal: currentLabel, tanggalValue: new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate()), shiftLabel: expectedToday, source: 'jadwal_today' };
     }
-    return { tanggal: currentLabel, shiftLabel: expectedToday || inferredShift || '', source: 'default_masuk' };
+    return { tanggal: currentLabel, tanggalValue: new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate()), shiftLabel: expectedToday || inferredShift || '', source: 'default_masuk' };
   } catch(e) {
     Logger.log('SharedLib.resolveRecapShiftContext: failed - ' + e.message);
-    return { tanggal: asText(tanggal).trim(), shiftLabel: '', source: 'error' };
+    return { tanggal: asText(tanggal).trim(), tanggalValue: null, shiftLabel: '', source: 'error' };
   }
 }
 
