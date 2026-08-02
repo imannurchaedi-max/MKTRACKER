@@ -757,6 +757,19 @@ function resolveFactoryWorkDate(tanggal, timeValue, eventType) {
   }
 }
 
+function resolveFactoryEventContext(tanggal, nik, timeValue, eventType) {
+  try {
+    const targetNik = asText(nik).trim().replace(/\.0$/, '');
+    if (targetNik) {
+      return resolveRecapShiftContext(tanggal, targetNik, timeValue, eventType);
+    }
+    return resolveFactoryWorkDate(tanggal, timeValue, eventType);
+  } catch (e) {
+    Logger.log('SharedLib.resolveFactoryEventContext: failed - ' + e.message);
+    return resolveFactoryWorkDate(tanggal, timeValue, eventType);
+  }
+}
+
 function getExpectedShiftForNikOnDate(nik, tanggal) {
   try {
     if (typeof getKaryawanExpectedForDate !== 'function') return '';

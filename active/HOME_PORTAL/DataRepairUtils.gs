@@ -284,7 +284,7 @@ function normalizeFactoryTemporalColumns_() {
 
 function buildFactoryAffectedDates_(tanggal, nik, timeValue, eventType) {
   const baseDate = normalizeSheetDateValue_(tanggal, getFactoryOperationalDateParsingOptions_());
-  const context = resolveFactoryWorkDate(baseDate, timeValue, eventType);
+  const context = resolveFactoryEventContext(baseDate, nik, timeValue, eventType);
   return uniqueTextList_([baseDate, context && context.tanggal]);
 }
 
@@ -448,7 +448,7 @@ function collectFactoryLogEvents_(sheetName, eventType, options) {
     validRows++;
 
     const master = karyawanMap[nik] || {};
-    const workContext = resolveFactoryWorkDate(tanggal, jamStr, eventType);
+    const workContext = resolveFactoryEventContext(tanggal, nik, jamStr, eventType);
     const recapDate = asText(workContext.tanggal).trim() || tanggal;
     const recapDateValue = workContext.tanggalValue || resolvedDate.normalizedValue || makeSheetDateValue(recapDate, parseOptions);
     events.push({

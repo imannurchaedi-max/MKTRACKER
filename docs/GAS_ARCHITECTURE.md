@@ -69,6 +69,35 @@ active/HOME_PORTAL/
 6. Semua tab di shell aktif berpindah secara lokal, tanpa ganti URL.
 7. Semua operasi backend berjalan lewat `google.script.run` ke GAS project `HOME_PORTAL`.
 
+## Workflow Operasional Satu Arah
+
+Arsitektur aktif harus dibaca sebagai pipeline satu arah:
+
+1. `Masuk Gate`
+   - tulis log ke `REGISTRASI SAAT MASUK PABRIK`
+   - buka state kartu di `BINDING_KARTU_MK`
+2. `Keluar Gate`
+   - tulis log ke `REGISTRASI SAAT KELUAR PABRIK`
+   - tutup state kartu di `BINDING_KARTU_MK`
+3. `Scan Area`
+   - tulis log `IN/OUT` ke `REGISTRASI MASUK KELUAR AREA KERJA`
+   - tidak mengubah log gate
+4. `Repair`
+   - membersihkan NIK
+   - menormalkan tanggal dan jam
+   - memperbaiki label shift
+5. `Rebuild Recap`
+   - membangun `ABSEN IN OUT MK` hanya dari log gate masuk dan keluar
+6. `Dashboard / Review / Export`
+   - membaca recap dan log area yang sudah bersih
+
+Prinsip utamanya:
+
+- `ABSEN IN OUT MK` adalah hasil turunan, bukan tempat input manual.
+- `BINDING_KARTU_MK` adalah state aktif kartu, bukan histori final absen.
+- report dan dashboard tidak boleh memperbaiki data mentah sendiri.
+- penentuan `tanggal kerja` harus memakai resolver yang sama di semua domain.
+
 ## Domain Runtime
 
 ### 1. Session dan Auth
@@ -99,6 +128,12 @@ active/HOME_PORTAL/
   - `REGISTRASI SAAT KELUAR PABRIK`
   - `ABSEN IN OUT MK`
 
+Kontrak domain:
+
+- `bindKartu()` hanya membuka binding dan menulis log masuk.
+- `releaseKartu()` hanya menutup binding dan menulis log keluar.
+- recap harian harus selalu diturunkan dari dua log gate tersebut.
+
 ### 3. Area Kerja
 
 - frontend:
@@ -119,6 +154,12 @@ active/HOME_PORTAL/
   - `ABSEN IN OUT MK`
   - `KARYAWAN`
   - `JADWAL_SHIFT` (untuk coverage % di kehadiran dashboard)
+
+Kontrak domain:
+
+- log area tidak boleh memperbaiki log gate.
+- scan area hanya valid jika karyawan masih `DI DALAM` menurut alur gate/recap.
+- force mode hanya memaksa arah event area, bukan mengubah histori gate.
 
 ### 4. Jadwal Shift
 
@@ -150,6 +191,12 @@ active/HOME_PORTAL/
   - `ABSEN IN OUT MK`
   - `REGISTRASI MASUK KELUAR AREA KERJA`
   - `KARYAWAN`
+
+Kontrak domain:
+
+- `getAbsenReport()` membaca recap yang sudah dibangun ulang.
+- `getAreaActivityReport()` membaca log area yang sudah dinormalisasi.
+- pagination, export, dan tabel render harus berasal dari dataset yang sama.
 
 ## Session Management
 
@@ -201,6 +248,16 @@ Catatan `CEK ABSEN`:
   Jadwal shift per karyawan — NIK, shift, tanggal mulai/selesai. Dipakai untuk hitung coverage % per shift di dashboard
 - `CONFIG_MODUL`
   Registry URL deployment child modules dan compatibility routing lama, bukan penentu navigasi shell aktif
+
+## Resolver Tanggal Kerja
+
+Untuk mengatasi campuran format `dd/MM/yyyy` dan `MM/dd/yyyy`, runtime aktif memakai guardrail berikut:
+
+- format kanonik penyimpanan tanggal operasional: `dd/MM/yyyy`
+- parser slash-date memprioritaskan `dd/MM/yyyy`
+- translasi `MM/dd/yyyy` hanya diterima jika hasilnya masih masuk jendela operasional aplikasi
+- gate, area, repair, rebuild recap, dan report harus berbagi resolver `tanggal kerja` yang sama
+- tanggal native `Date` yang jatuh di luar jendela operasional harus dipulihkan dari display value saat repair, bukan dibiarkan lolos apa adanya
 
 ## Child Modules
 

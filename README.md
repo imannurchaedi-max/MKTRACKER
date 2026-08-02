@@ -2,6 +2,30 @@
 
 Google Apps Script web app untuk access control, absensi, dan tracking area kerja berbasis Google Sheets.
 
+## Workflow Operasional Inti
+
+Runtime aktif sekarang mengikuti alur ini:
+
+1. `Masuk`
+   - kartu MK dibinding ke NIK
+   - log ditulis ke `REGISTRASI SAAT MASUK PABRIK`
+2. `Keluar`
+   - kartu MK dilepas
+   - log ditulis ke `REGISTRASI SAAT KELUAR PABRIK`
+3. `Scan Area`
+   - security mencatat pergerakan `IN/OUT` area kerja
+   - log ditulis ke `REGISTRASI MASUK KELUAR AREA KERJA`
+4. `Recap`
+   - `ABSEN IN OUT MK` dibangun ulang dari log gate masuk dan keluar
+5. `Dashboard / Export / Review`
+   - membaca hasil recap dan log area yang sudah dibersihkan
+
+Konsekuensi arsitektural:
+
+- `ABSEN IN OUT MK` bukan input utama.
+- `BINDING_KARTU_MK` adalah state kartu aktif, bukan histori final.
+- parser tanggal, repair, recap, dan report harus memakai kontrak tanggal kerja yang sama.
+
 ## Source of Truth
 
 Runtime aktif utama ada di [`active/HOME_PORTAL/`](./active/HOME_PORTAL).

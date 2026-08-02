@@ -29,7 +29,7 @@ function scanAreaKerja(noKartuMK, tujuan, catatan, forceMode) {
       const tanggalValue = makeSheetDateValue(now);
       const tanggal = formatDate(now);
       const waktu = formatDateTime(now);
-      const workContext = resolveFactoryWorkDate(tanggal, formatTime(now), 'keluar');
+      const workContext = resolveFactoryEventContext(tanggal, kar.nik, formatTime(now), 'keluar');
       const factoryStatus = getFactoryFlowStatusFromLogs_(kar.nik, workContext.tanggal || tanggal);
       if (!isExternalKaryawan(kar) && factoryStatus !== 'DI DALAM') {
         return { ok: false, msg: `${kar.nama} belum tercatat masuk pabrik hari ini.`, status: 'OUTSIDE_FACTORY' };

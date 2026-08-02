@@ -92,7 +92,8 @@ function bindKartu(noKartuMK, nik, loker) {
       const tanggalValue = makeSheetDateValue(now);
       const tanggal = formatDate(now);
       const jam = formatTime(now);
-      const factoryStatus = getFactoryFlowStatusFromLogs_(kar.nik, tanggal);
+      const workContext = resolveFactoryEventContext(tanggal, kar.nik, jam, 'masuk');
+      const factoryStatus = getFactoryFlowStatusFromLogs_(kar.nik, workContext.tanggal || tanggal);
 
       if (factoryStatus === 'DI DALAM') return { ok: false, msg: `${kar.nama} sudah tercatat masuk dan belum keluar.` };
       if (factoryStatus === 'SELESAI')  return { ok: false, msg: `${kar.nama} sudah menyelesaikan absen hari ini.` };
@@ -165,7 +166,7 @@ function releaseKartu(noKartuMK, loker) {
       const waktu = formatDateTime(now);
       const tanggalValue = makeSheetDateValue(now);
       const tanggal = formatDate(now);
-      const workContext = resolveFactoryWorkDate(tanggal, formatTime(now), 'keluar');
+      const workContext = resolveFactoryEventContext(tanggal, binding.nik, formatTime(now), 'keluar');
       const factoryStatus = getFactoryFlowStatusFromLogs_(binding.nik, workContext.tanggal || tanggal);
       if (factoryStatus === 'SELESAI') return { ok: false, msg: `${binding.nama} sudah tercatat keluar hari ini.` };
       if (factoryStatus !== 'DI DALAM') return { ok: false, msg: `${binding.nama} belum tercatat berada di dalam pabrik hari ini.` };
