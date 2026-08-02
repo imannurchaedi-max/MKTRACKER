@@ -10,7 +10,7 @@ Aturan yang dipasang pada runtime:
 - sheet operasional dan recap harus menyimpan tanggal sebagai native date, bukan string
 
 Jendela validasi operasional:
-- tanggal minimum: `15/05/2026`
+- tanggal minimum: `25/04/2026`
 - tanggal maksimum: `hari ini + 2 hari`
 
 Sheet yang wajib mengikuti guardrail ini:
