@@ -60,6 +60,36 @@ function normalizeDisplayedTimeValue_(rawValue, displayValue) {
   return normalizeTimeValue(rawValue);
 }
 
+function resolveOperationalDateCell_(rawValue, displayValue, parseOptions) {
+  const normalizedOptions = parseOptions || getFactoryOperationalDateParsingOptions_();
+  const rawParsed = parseSheetDate(rawValue, normalizedOptions);
+  if (rawParsed) {
+    return {
+      parsedDate: rawParsed,
+      normalizedText: formatDate(rawParsed),
+      normalizedValue: makeSheetDateValue(rawParsed, normalizedOptions),
+      source: 'raw'
+    };
+  }
+
+  const displayParsed = parseSheetDate(displayValue, normalizedOptions);
+  if (displayParsed) {
+    return {
+      parsedDate: displayParsed,
+      normalizedText: formatDate(displayParsed),
+      normalizedValue: makeSheetDateValue(displayParsed, normalizedOptions),
+      source: 'display'
+    };
+  }
+
+  return {
+    parsedDate: null,
+    normalizedText: '',
+    normalizedValue: '',
+    source: ''
+  };
+}
+
 function uniqueTextList_(values) {
   const seen = {};
   const result = [];
@@ -270,11 +300,15 @@ function repairFactoryShiftColumn_(sheetName, eventType, shiftColIndex) {
   const displayData = range.getDisplayValues();
   let fixedShiftCount = 0;
   let cleanedNikCount = 0;
+  let scannedRows = 0;
+  let validRows = 0;
+  let skippedInvalidDateRows = 0;
   let changed = false;
   const sampleFixes = [];
   const parseOptions = getFactoryOperationalDateParsingOptions_();
 
   for (let i = 0; i < data.length; i++) {
+    scannedRows++;
     const row = data[i];
     const displayRow = displayData[i] || [];
 
@@ -286,11 +320,16 @@ function repairFactoryShiftColumn_(sheetName, eventType, shiftColIndex) {
       changed = true;
     }
 
-    const tanggal = normalizeSheetDateValue_(row[3], parseOptions) || normalizeSheetDateValue_(displayRow[3], parseOptions);
+    const resolvedDate = resolveOperationalDateCell_(row[3], displayRow[3], parseOptions);
+    const tanggal = resolvedDate.normalizedText;
     const jamStr = normalizeDisplayedTimeValue_(row[4], displayRow[4]);
-    if (!tanggal || !jamStr) continue;
+    if (!tanggal || !jamStr) {
+      if (!tanggal) skippedInvalidDateRows++;
+      continue;
+    }
+    validRows++;
 
-    const normalizedDateValue = makeSheetDateValue(row[3] || displayRow[3], parseOptions);
+    const normalizedDateValue = resolvedDate.normalizedValue;
     if (normalizedDateValue && !temporalCellMatchesMode_(row[3], normalizedDateValue, 'date')) {
       row[3] = normalizedDateValue;
       changed = true;
@@ -324,6 +363,9 @@ function repairFactoryShiftColumn_(sheetName, eventType, shiftColIndex) {
   }
 
   return {
+    scannedRows: scannedRows,
+    validRows: validRows,
+    skippedInvalidDateRows: skippedInvalidDateRows,
     fixedShiftCount: fixedShiftCount,
     cleanedNikCount: cleanedNikCount,
     sampleFixes: sampleFixes
@@ -347,6 +389,9 @@ function collectFactoryLogEvents_(sheetName, eventType, options) {
   const events = [];
   let fixedShiftCount = 0;
   let cleanedNikCount = 0;
+  let scannedRows = 0;
+  let validRows = 0;
+  let skippedInvalidDateRows = 0;
   let changed = false;
   const sampleFixes = [];
   const parseOptions = getFactoryOperationalDateParsingOptions_();
@@ -354,12 +399,14 @@ function collectFactoryLogEvents_(sheetName, eventType, options) {
   const karyawanMap = config.karyawanMap || getKaryawanMapByNIK();
 
   for (let i = 0; i < data.length; i++) {
+    scannedRows++;
     const row = data[i];
     const displayRow = displayData[i] || [];
     const rawNik = asText(row[1]).trim();
     const nik = rawNik.replace(/\.0$/, '');
-    const tanggal = normalizeSheetDateValue_(row[3], parseOptions) || normalizeSheetDateValue_(displayRow[3], parseOptions);
-    const parsedDate = parseSheetDate(row[3], parseOptions) || parseSheetDate(displayRow[3], parseOptions);
+    const resolvedDate = resolveOperationalDateCell_(row[3], displayRow[3], parseOptions);
+    const tanggal = resolvedDate.normalizedText;
+    const parsedDate = resolvedDate.parsedDate;
     const jamStr = normalizeDisplayedTimeValue_(row[4], displayRow[4]);
 
     if (repairSheet && nik && nik !== rawNik) {
@@ -369,6 +416,10 @@ function collectFactoryLogEvents_(sheetName, eventType, options) {
     }
 
     if (repairSheet) {
+      if (resolvedDate.normalizedValue && !temporalCellMatchesMode_(row[3], resolvedDate.normalizedValue, 'date')) {
+        row[3] = resolvedDate.normalizedValue;
+        changed = true;
+      }
       const correctShift = jamStr ? detectShift(jamStr, eventType) : '';
       const currentShift = asText(row[shiftColIndex - 1]).trim();
       if (correctShift && correctShift !== currentShift) {
@@ -390,7 +441,11 @@ function collectFactoryLogEvents_(sheetName, eventType, options) {
     }
 
     if (nikFilter && nik !== nikFilter) continue;
-    if (!nik || !tanggal || !parsedDate || !jamStr) continue;
+    if (!nik || !tanggal || !parsedDate || !jamStr) {
+      if (!tanggal || !parsedDate) skippedInvalidDateRows++;
+      continue;
+    }
+    validRows++;
 
     const master = karyawanMap[nik] || {};
     const workContext = resolveFactoryWorkDate(tanggal, jamStr, eventType);
@@ -417,6 +472,9 @@ function collectFactoryLogEvents_(sheetName, eventType, options) {
 
   return {
     events: events,
+    scannedRows: scannedRows,
+    validRows: validRows,
+    skippedInvalidDateRows: skippedInvalidDateRows,
     fixedShiftCount: fixedShiftCount,
     cleanedNikCount: cleanedNikCount,
     sampleFixes: sampleFixes
@@ -615,6 +673,9 @@ function repairFactoryMasukLog() {
       const result = repairFactoryMasukLog_();
       const sampleLines = stringifyRepairSamples_(result.sampleFixes);
       const msg = 'Perbaikan log masuk selesai.\n' +
+        '- Baris dicek: ' + result.scannedRows + '\n' +
+        '- Baris valid operasional: ' + result.validRows + '\n' +
+        '- Tanggal invalid dilewati: ' + result.skippedInvalidDateRows + '\n' +
         '- NIK dibersihkan (.0): ' + result.cleanedNikCount + '\n' +
         '- Shift masuk dikoreksi: ' + result.fixedShiftCount +
         (sampleLines.length ? '\n\nContoh koreksi:\n- ' + sampleLines.slice(0, 5).join('\n- ') : '\n\nTidak ada baris yang perlu dikoreksi.');
@@ -637,6 +698,9 @@ function repairFactoryKeluarLog() {
       const result = repairFactoryKeluarLog_();
       const sampleLines = stringifyRepairSamples_(result.sampleFixes);
       const msg = 'Perbaikan log keluar selesai.\n' +
+        '- Baris dicek: ' + result.scannedRows + '\n' +
+        '- Baris valid operasional: ' + result.validRows + '\n' +
+        '- Tanggal invalid dilewati: ' + result.skippedInvalidDateRows + '\n' +
         '- NIK dibersihkan (.0): ' + result.cleanedNikCount + '\n' +
         '- Shift keluar dikoreksi: ' + result.fixedShiftCount +
         (sampleLines.length ? '\n\nContoh koreksi:\n- ' + sampleLines.slice(0, 5).join('\n- ') : '\n\nTidak ada baris yang perlu dikoreksi.');
@@ -867,10 +931,14 @@ function summarizeStepResultDetail_(stepId, result, report) {
     return 'Tanggal/jam dinormalkan: ' + (result.normalizedTemporalCells || 0) + ' sel.';
   }
   if (stepId === 'repair_masuk_log') {
-    return 'Shift masuk dikoreksi: ' + (result.fixedShiftCount || 0) + ' baris.';
+    return 'Log masuk valid: ' + (result.validRows || 0) + '/' + (result.scannedRows || 0) +
+      ' baris, shift dikoreksi: ' + (result.fixedShiftCount || 0) +
+      ', tanggal invalid dilewati: ' + (result.skippedInvalidDateRows || 0) + '.';
   }
   if (stepId === 'repair_keluar_log') {
-    return 'Shift keluar dikoreksi: ' + (result.fixedShiftCount || 0) + ' baris.';
+    return 'Log keluar valid: ' + (result.validRows || 0) + '/' + (result.scannedRows || 0) +
+      ' baris, shift dikoreksi: ' + (result.fixedShiftCount || 0) +
+      ', tanggal invalid dilewati: ' + (result.skippedInvalidDateRows || 0) + '.';
   }
   if (stepId === 'rebuild_recap') {
     return 'Rekap dibangun ulang: ' + (report.repairedRecaps || 0) + ' baris.';
